@@ -1,25 +1,391 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Work+Sans:wght@400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 :root {
-  --PrimaryColor: #063B87;
-  --SecondaryColor: #DBE7F8;
-  --ThirdColor: #FCFDFF;
+  --PrimaryColor: #063b87;
+  --SecondaryColor: #dbe7f8;
+  --ThirdColor: #fcfdff;
   --BlackColor: #000000;
-  --WhiteColor: #FFFFFF;
+  --WhiteColor: #ffffff;
   --GreyColorOne: #828282;
-  --GreyColorTwo: #BDBDBD;
+  --GreyColorTwo: #bdbdbd;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-li{
+li {
   list-style: none;
+}
+
+.Home {
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  background-color: var(--WhiteColor);
+  position: relative;
+  flex-direction: column;
+}
+
+.NavBar {
+  width: 100%;
+  height: 75px;
+  margin-top: 10px;
+  padding: 10px 0;
+}
+
+.NavBar .logo {
+  color: var(--PrimaryColor);
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.NavBar ul {
+  width: fit-content;
+  height: 100%;
+  background-color: rgba(230, 230, 230, 0.5);
+  border-radius: 30px;
+}
+
+.NavBar ul li {
+  width: 120px;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.NavBar ul li a {
+  font-size: 15px;
+  color: var(--BlackColor);
+}
+
+.NavBar ul .Dashboard {
+  background-color: var(--PrimaryColor);
+}
+
+.NavBar ul .Dashboard a {
+  color: var(--WhiteColor);
+}
+
+.profile-class {
+  position: relative;
+  width: 300px;
+  height: 100%;
+  background-color: rgba(230, 230, 230, 0.5);
+  border-radius: 30px;
+}
+
+.profile-class .image,
+.setting-icon {
+  width: 55px;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--GreyColorOne);
+}
+
+.profile-class .full-name {
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.profile-class span {
+  font-size: 13px;
+  color: var(--BlackColor);
+}
+
+.profile-class .name {
+  font-size: 15px;
+}
+
+.setting-icon {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid rgb(130, 130, 130, 0.4);
+}
+
+.setting-icon .icon {
+  color: var(--BlackColor);
+}
+
+.AsideBar {
+  width: 32%;
+  height: 100vh;
+  position: fixed;
+  right: -100%;
+  top: 0;
+  background-color: var(--SecondaryColor);
+}
+
+.showAsideBar.AsideBar {
+  right: 0;
+  transition: all 2s ease;
+  animation: showAsideBar 2s;
+}
+
+@keyframes showAsideBar {
+  40% {
+    border-radius: 250px 0px 0px 250px / 400px 0px 0px 400px;
+  }
+
+  100% {
+    border-radius: 0;
+  }
+}
+
+.CardFITTECH {
+  width: 360px;
+  height: 230px;
+  margin: 0 auto;
+  padding-left: 20px;
+  background: linear-gradient(
+    45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 140, 177, 1) 35%,
+    #063b87 100%
+  );
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+  border-radius: 15px;
+}
+
+.approximation {
+  width: 30px;
+  transform: rotate(90deg);
+}
+
+.chip {
+  height: 40px;
+  position: relative;
+  left: 87%;
+  bottom: 20px;
+}
+
+.card-number {
+  margin-top: 40px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.CardFITTECH .card-number span {
+  font-family: "Barlow Condensed", sans-serif;
+  color: var(--WhiteColor);
+  letter-spacing: 4px;
+}
+
+.CardFITTECH .card-holder label,
+.CardFITTECH .card-holder span {
+  color: var(--WhiteColor);
+  font-family: "Barlow Condensed", sans-serif;
+
+}
+
+.card label {
+  font-size: 24px;
+  font-family: "Barlow Condensed", sans-serif;
+
+}
+.card-infos {
+  width: 40%;
+}
+
+.card-infos .exp label,
+.card-infos .exp span,
+.card-infos .cvv label,
+.card-infos .cvv span {
+  color: var(--WhiteColor);
+  font-family: "Barlow Condensed", sans-serif;
+
+}
+
+.Home-container {
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 20px;
+}
+
+.left-class {
+  width: 60%;
+  height: fit-content;
+}
+
+.right-class {
+  width: 40%;
+  height: 100%;
+}
+
+.left-top {
+  width: 100%;
+  height: 200px;
+}
+
+.CardAccount,
+.CardSaving {
+  width: 40%;
+  height: 100%;
+  background-color: var(--SecondaryColor);
+  border-radius: 20px;
+}
+
+.CardAccount .date {
+  font-size: 14px;
+}
+
+.CardSaving {
+  color: var(--PrimaryColor);
+}
+
+.total-sales span {
+  font-size: 18px;
+  color: var(--PrimaryColor);
+}
+
+.total-sales h3 {
+  position: relative;
+  line-height: 50px;
+  font-size: 42px;
+  color: var(--PrimaryColor);
+}
+
+.total-sales h3 span {
+  position: absolute;
+  top: -8px;
+  color: #063b87;
+}
+
+.CardAccount {
+  background-color: #063b87;
+}
+
+.CardAccount span,
+.CardAccount h3 {
+  color: var(--WhiteColor);
+}
+.right-wallet {
+  gap: 20px;
+}
+
+.right-wallet span,
+.right-transaction span,
+.header span {
+  color: #063b87;
+  font-size: 22px;
+}
+
+.right-transaction {
+  width: 100%;
+  height: 100%;
+}
+
+.right-transaction .see-all {
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--GreyColorOne);
+}
+
+.right-table {
+  width: 100%;
+  height: 100%;
+}
+
+.TableTransactionReadOnlyRow {
+  width: 100%;
+  height: 70px;
+}
+
+.TableTransactionReadOnlyRow .image {
+  width: 40px;
+  height: 40px;
+  background-color: var(--GreyColorOne);
+  border-radius: 50%;
+}
+
+.TableTransactionReadOnlyRow .left-ligne-description .name {
+  color: var(--BlackColor);
+  font-size: 18px;
+}
+
+.TableTransactionReadOnlyRow .left-ligne-description .date {
+  color: var(--GreyColorOne);
+  font-size: 12px;
+}
+
+.TableTransactionReadOnlyRow h4 {
+  font-size: 20px;
+}
+
+.TableTransactionReadOnlyRow h4 span {
+  font-size: 12px;
+  color: var(--BlackColor);
+}
+
+.TableTransaction {
+  max-height: 85vh;
+  height: fit-content;
+  overflow-y: scroll;
+  padding-right: 15px;
+}
+
+.TableTransaction::-webkit-scrollbar,
+.Table-expense::-webkit-scrollbar {
+  background-color: rgba(230, 230, 230, 0.5);
+  border-radius: 2px;
+  width: 5px;
+}
+
+.TableTransaction::-webkit-scrollbar-thumb,
+.Table-expense::-webkit-scrollbar-thumb {
+  background-color: var(--PrimaryColor);
+  width: 5px;
+  border-radius: 2px;
+}
+
+.left-expenses {
+  width: 90%;
+  height: 50vh;
+  border-radius: 20px;
+  border: 1px solid var(--PrimaryColor);
+  padding: 0 15px;
+  padding-top: 10px;
+}
+
+.left-expenses .header select {
+  height: 40px;
+  min-width: 100px;
+  text-align: center;
+  border-radius: 30px;
+  padding: 5px;
+  background-color: rgba(230, 230, 230, 0.5);
+  font-size: 16px;
+}
+
+.TableExpense {
+  width: 100%;
+  height: 100%;
+}
+
+.expense-table {
+  overflow-y: hidden;
+}
+
+.Table-expense {
+  overflow-y: scroll;
+}
+
+.TableExpense th {
+  font-size: 14px;
+  color: var(--GreyColorOne);
+  font-weight: 400;
+}
+
+.TableExpense th td,
+.TableExpenseReadOnlyRow tr td {
+  width: calc(100% / 4);
+  text-align: center;
 }
