@@ -16,10 +16,10 @@ export default function NavBar() {
       </div>
       <ul className="flex justify-center items-center gap-6">
         <li className="Dashboard flex justify-center items-center">
-          <a href="#">Dashboard</a>
+          <a href="/">Dashboard</a>
         </li>
         <li className="flex justify-center items-center">
-          <a href="#">Wallet</a>
+          <a href="/Login">Wallet</a>
         </li>
         <li className="flex justify-center items-center">
           <a href="#">Profile</a>
