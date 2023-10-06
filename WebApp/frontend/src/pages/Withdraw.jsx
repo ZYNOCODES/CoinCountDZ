@@ -4,7 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function SendPayment() {
+export default function Withdraw() {
   const notify = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
   const { user } = useAuthContext();
@@ -74,20 +74,12 @@ export default function SendPayment() {
     }
   }
   return (
-    <div className="SendPayment">
+    <div className="SendPayment Withdraw">
       <NavBar />
       <div className="BackAccount-container flex flex-col items-center justify-center gap-8 mt-12 pb-4">
-        <h2>Send payment to</h2>
+        <h2>Withdraw</h2>
         <form className="flex flex-col gap-8" onSubmit={submitSendMoney}>
           <div className="input-items flex flex-col gap-4">
-            <div className="input-item flex flex-col gap-2">
-              <label>Phone Number</label>
-              <input type="tel" />
-            </div>
-            <div className="input-item flex flex-col gap-2">
-              <label>Account ID</label>
-              <input type="text" onChange={(e) => setAccountNumber(e)} />
-            </div>
             <div className="input-item flex flex-col gap-2">
               <label>Amount</label>
               <div className="Amount-input-class flex items-center">
@@ -107,10 +99,6 @@ export default function SendPayment() {
                     </option>
                   ))}
               </select>
-            </div>
-            <div className="input-item input-section flex flex-col gap-2">
-              <label>Note</label>
-              <input type="text" />
             </div>
           </div>
 

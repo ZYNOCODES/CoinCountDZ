@@ -6,6 +6,10 @@ import Send from "./pages/SendPayment";
 import Activity from "./pages/Activity";
 import Login from "./pages/loginPage";
 import { useAuthContext } from "./hooks/useAuthContext";
+import Operation from "./pages/Operation";
+import SendPayment from "./pages/SendPayment";
+import RequestPayment from "./pages/RequestPayment";
+import Withdraw from "./pages/Withdraw";
 
 function App() {
   const { user } = useAuthContext();
@@ -24,8 +28,11 @@ function App() {
           ></Route>
 
           <Route path="/Wallet" element={<Wallet />}></Route>
-          <Route path="/Send" element={<Send />}></Route>
-          <Route path="/Activity" element={<Activity />}></Route>
+          <Route path="/Operation" element={<Operation />}></Route>
+          {/* <Route path="/Activity" element={<Activity />}></Route> */}
+          <Route path="/Send" element={<SendPayment />}></Route>
+          <Route path="/Request" element={<RequestPayment />}></Route>
+          <Route path="/Withdraw" element={<Withdraw />}></Route>
         </Routes>
       </main>
     </BrowserRouter>

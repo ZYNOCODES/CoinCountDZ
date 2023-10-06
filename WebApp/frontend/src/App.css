@@ -39,7 +39,10 @@ li {
   height: 75px;
   margin-top: 10px;
   padding: 10px 3%;
+  position: relative;
 }
+
+
 
 .Navbar {
   width: 100%;
@@ -83,9 +86,39 @@ li {
 
 .NavBar ul {
   width: fit-content;
-  height: 100%;
+  height: 55px;
   background-color: rgba(230, 230, 230, 0.5);
   border-radius: 30px;
+}
+
+.Operation-send{
+  position: absolute;
+  left: 37%;
+  top: 70px;
+  opacity: 0;
+}
+
+.SendPayment .NavBar .Operation-send .first-operation,
+.RequestPayment .NavBar .Operation-send .second-operation,
+.Withdraw .NavBar .Operation-send .third-operation {
+  background-color: var(--PrimaryColor);
+}
+
+.RequestPayment .NavBar .Operation-send .first-operation,
+.Withdraw .NavBar .Operation-send .first-operation{
+  background-color: transparent;
+}
+
+
+
+.SendPayment .NavBar .Operation-send .first-operation span,
+.RequestPayment .NavBar .Operation-send .second-operation span,
+.Withdraw .NavBar .Operation-send .third-operation span{
+  color: var(--WhiteColor);
+}
+
+.NavBar-list .Send:hover .Operation-send{
+  opacity: 1;
 }
 
 .NavBar ul li {
@@ -96,6 +129,15 @@ li {
 
 .NavBar ul li a {
   font-size: 15px;
+  color: var(--BlackColor);
+}
+
+.Send .Operation-send li span{
+  color: var(--BlackColor);
+}
+
+.RequestPayment .NavBar .Operation-send .first-operation span,
+.Withdraw .NavBar .Operation-send .first-operation span{
   color: var(--BlackColor);
 }
 
@@ -860,16 +902,20 @@ form.sign-in-form {
 }
 
 .BackAccount,
-.SendPayment,
 .Activity {
   width: 100%;
   overflow-y: hidden;
   height: 100vh;
 }
 
+.SendPayment{
+  width: 100%;
+  height: fit-content;
+}
+
 .BackAccount-container {
   width: 100%;
-  height: calc(100vh - 90px);
+  height: fit-content;
 }
 
 .BackAccount-container h2 {
@@ -890,6 +936,14 @@ form.sign-in-form {
   outline: none;
   padding-left: 2%;
   font-size: 16px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
 
 .SendPayment .BackAccount-container .Amount-input-class {

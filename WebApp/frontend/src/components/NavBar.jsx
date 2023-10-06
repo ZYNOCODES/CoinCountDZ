@@ -13,7 +13,7 @@ export default function NavBar() {
   return (
     <div className="NavBar flex justify-between items-center">
       <NavBarLogo />
-      <ul className="flex justify-center items-center gap-6">
+      <ul className="NavBar-list flex justify-center items-center gap-6">
         <li className="Dashboard flex justify-center items-center">
           <a href="/">Dashboard</a>
         </li>
@@ -21,12 +21,30 @@ export default function NavBar() {
           <a href="/Wallet">Wallet</a>
         </li>
         <li className="Send flex justify-center items-center">
-          <a href="/Send">Send</a>
+          <a href="#">Operation</a>
+          <ul className="Operation-send flex justify-center items-center">
+            <li className="first-operation flex justify-center items-center">
+              <a href="/Send" className="text-black">
+                <span>Send</span>
+              </a>
+            </li>
+            <li className="second-operation flex justify-center items-center">
+              <a href="/Request">
+                <span>Request</span>
+              </a>
+            </li>
+            <li className="third-operation flex justify-center items-center">
+              <a href="/Withdraw">
+                <span>Withdraw</span>
+              </a>
+            </li>
+          </ul>
         </li>
         <li className="Activity flex justify-center items-center">
           <a href="/Activity">Activity</a>
         </li>
       </ul>
+
       <div className="profile-class flex items-center">
         <div className="image"></div>
         <div className="full-name flex">

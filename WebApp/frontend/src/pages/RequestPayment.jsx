@@ -4,7 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function SendPayment() {
+export default function RequestPayment() {
   const notify = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
   const { user } = useAuthContext();
@@ -74,10 +74,10 @@ export default function SendPayment() {
     }
   }
   return (
-    <div className="SendPayment">
+    <div className="RequestPayment SendPayment">
       <NavBar />
       <div className="BackAccount-container flex flex-col items-center justify-center gap-8 mt-12 pb-4">
-        <h2>Send payment to</h2>
+        <h2>Request payment from</h2>
         <form className="flex flex-col gap-8" onSubmit={submitSendMoney}>
           <div className="input-items flex flex-col gap-4">
             <div className="input-item flex flex-col gap-2">
