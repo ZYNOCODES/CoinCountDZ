@@ -5,7 +5,11 @@ const validator = require('validator');
 const GetWallet = async (req, res) => {
     const { id } = req.params;
     try {
-        const wallet = await Wallet.findByPk(id);
+        const wallet = await Wallet.findOne({
+            where:{
+                UserID: id
+            }
+        });
 
         if (!wallet) {
           return res.status(404).json({ error: 'Wallet not found' });

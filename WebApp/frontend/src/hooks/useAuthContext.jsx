@@ -1,4 +1,4 @@
-import { AuthContext } from "../context/Authcontext";
+import { AuthContext } from "../context/Authcontext"; // Make sure the path to AuthContext is correct
 import { useContext } from "react";
 
 export const useAuthContext = () => {
@@ -9,4 +9,4 @@ export const useAuthContext = () => {
     }
 
     return context;
-}
+};

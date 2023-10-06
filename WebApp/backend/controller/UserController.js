@@ -38,7 +38,7 @@ const CreateAccount = async (req, res) => {
             const hash = await bcrypt.hash(Password, salt);
     
             //validation
-            if(!Email || !Password || !FirstName || !LastName || !Telephone || !Region || !Adresse ){
+            if(!Email || !Password || !FirstName || !LastName || !Telephone || !Region || !ResetPassword ){
                 return res
                   .status(400)
                   .json({ message: "Tous les champs doivent être remplis" });
@@ -100,10 +100,9 @@ const CreateAccount = async (req, res) => {
                             return res.status(400).json({ message: "wallet non enregistré" }); 
                         }
                         user.Wallet = wallet.id
-                        user.CreditCardNumber = generateUniqueNumberForUser()
                         await user.save();
                         //return result
-                        res.status(200).json({message:"Utilisateur enregistré avec succès", id, token});
+                        res.status(200).json({id, token});
                     }
                     
                 }
