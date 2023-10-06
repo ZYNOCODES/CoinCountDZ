@@ -40,6 +40,7 @@ export default function Home() {
     };
     fetchWalletData();
   }, [WalletData, user?.token]);
+  
   return (
     <div className="Home flex">
       <NavBar />
