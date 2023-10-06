@@ -9,7 +9,7 @@ const clients = sequelize.define('bankclients', {
     autoIncrement: true,
   },
   AccountNumber: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.BIGINT,
     allowNull: false,
   },
   BankID: {

@@ -6,7 +6,8 @@ import CardFITTECH from "../components/CardFITTECH";
 import TableTransaction from "../components/Tables/TableTransaction";
 import TableExpense from "../components/Tables/TableExpense";
 import { useAuthContext } from "../hooks/useAuthContext";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function Home() {
   const notify = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);

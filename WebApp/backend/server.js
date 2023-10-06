@@ -4,8 +4,10 @@ const express = require('express');
 const cors = require('cors');
 const body = require('body-parser');
 const sequelize = require('./config/Database');
-const UserRoute = require('./route/User')
-const WalletRoute = require('./route/Wallet')
+const UserRoute = require('./route/User');
+const WalletRoute = require('./route/Wallet');
+const BankRoute = require('./route/Bank');
+const TransactionRoute = require('./route/Transaction');
 
 const port = process.env.PORT || 8080;
 
@@ -24,6 +26,8 @@ app.use((req, res, next) => {
 //routes
 app.use('/user', UserRoute);
 app.use('/Wallet', WalletRoute);
+app.use('/Bank', BankRoute);
+app.use('/Transaction', TransactionRoute);
 
 
 //connect to db

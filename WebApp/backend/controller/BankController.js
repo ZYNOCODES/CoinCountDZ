@@ -1,14 +1,15 @@
 const Bank = require('../model/BankModel');
 const BankClient = require('../model/BankClients');
+const Wallet = require('../model/WalletModel');
+const Transaction = require('../model/TransactionModel');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 const { where } = require('sequelize');
 
 //get Bank by id
-const GetBank = async (req, res) => {
-    const { id } = req.params;
+const GetAllBanks = async (req, res) => {
     try {
-        const bank = await Bank.findByPk(id);
+        const bank = await Bank.findAll();
 
         if (!bank) {
           return res.status(404).json({ error: 'Bank not found' });
@@ -24,27 +25,75 @@ const GetBank = async (req, res) => {
 const GetAllBank = async (req, res) => {
     const { id } = req.body;
     try {
-        const BankClient = await BankClient.findAll({
+        const bankClient = await BankClient.findAll({
             where:{
                 BankID: id,
             }
         });
 
-        if (!BankClient) {
+        if (!bankClient) {
           return res.status(404).json({ error: 'No client found' });
         }
         
-        res.status(200).json(BankClient);
+        res.status(200).json(bankClient);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error getting Bank');
     }
 }
 //create bank
-const CreatNewBank = async (req, res) => {
-    const { id } = req.body;
+const AddNewBank = async (req, res) => {
+    const { UserID, BankName, BankID, AccountNumber } = req.body;
     try {
-        
+        if(!UserID, !BankName, !AccountNumber){
+            return res.status(404).json({ message: "Tout les champs doivent etre remplis" });
+        }
+        const bankClient = await BankClient.findOne({
+            where:{
+                BankID: BankID,
+                AccountNumber: AccountNumber
+            }
+        });
+        if(!bankClient){
+            return res.status(404).json({ message: "Account number incorrect" });
+        }
+        bankClient.UserID = UserID;
+        await bankClient.save();
+        res.status(200).json({ message: "Bank added successfully" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error creatting Bank');
+    }
+}
+//send money
+const SendMoney = async (req, res) => {
+    const { UserID, BankID, AccountNumber, Amount } = req.body;
+    try {
+        if(!UserID, !BankID, !AccountNumber, !Amount){
+            return res.status(404).json({ message: "Tout les champs doivent etre remplis" });
+        }
+        const bankClient = await BankClient.findOne({
+            where:{
+                BankID: BankID,
+                AccountNumber: AccountNumber
+            }
+        });
+        if(!bankClient){
+            return res.status(404).json({ message: "Account number incorrect" });
+        }
+        const wallet = await Wallet.findOne({
+            where:{
+                UserID: UserID,
+            }
+        });
+        if(!wallet){
+            return res.status(404).json({ message: "dont have a wellet yet" });
+        }
+        wallet.Balance = parseInt(wallet.Balance) - parseInt(Amount); 
+        await wallet.save().then((result)=>{
+            
+        }).catch(err => console.log(err))
+        res.status(200).json({ message: "money sended successfully" });
     } catch (error) {
       console.error(error);
       res.status(500).send('Error creatting Bank');
@@ -82,8 +131,9 @@ const DeleteBank = async (req, res) => {
     }
 }
 module.exports = {
-    GetBank,
+    GetAllBanks,
     GetAllBank,
     DeleteBank,
-    CreatNewBank
+    AddNewBank,
+    SendMoney
 }

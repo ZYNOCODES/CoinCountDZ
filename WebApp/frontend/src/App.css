@@ -41,6 +41,37 @@ li {
   padding: 10px 0;
 }
 
+.Navbar {
+  width: 100%;
+  height: 75px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.Wallet .NavBar .Dashboard,
+.SendPayment .NavBar .Dashboard,
+.Activity .NavBar .Dashboard {
+  background-color: transparent;
+}
+
+.Wallet .NavBar .Dashboard a,
+.SendPayment .NavBar .Dashboard a,
+.Activity .NavBar .Dashboard a {
+  color: var(--BlackColor);
+}
+
+.Wallet .NavBar .Wallet,
+.SendPayment .NavBar .Send,
+.Activity .NavBar .Activity {
+  background-color: var(--PrimaryColor);
+}
+
+.Wallet .NavBar .Wallet a,
+.SendPayment .NavBar .Send a,
+.Activity .NavBar .Activity a {
+  color: var(--WhiteColor);
+}
+
 .logo {
   color: var(--PrimaryColor);
   font-size: 26px;
@@ -141,34 +172,39 @@ li {
 }
 
 .CardFITTECH {
-  width: 360px;
+  width: 380px;
   height: 230px;
   margin: 0 auto;
-  padding-left: 20px;
-  background: linear-gradient(
-    45deg,
-    #020024 0%,
-    #008cb1 35%,
-    #063b87 100%
-  );
+  padding: 0 20px;
+  background: linear-gradient(45deg, #020024 0%, #008cb1 35%, #063b87 100%);
   /* border: 1px solid rgba(0, 0, 0, 0.3); */
   border-radius: 15px;
 }
 
-.approximation {
-  width: 30px;
-  transform: rotate(90deg);
+.CardFITTECH .logo h2 {
+  color: var(--WhiteColor);
+  font-size: 20px;
 }
 
 .chip {
   height: 40px;
-  position: relative;
-  left: 87%;
-  bottom: 20px;
+}
+
+.left-header .left-ligne {
+  width: 2px;
+  height: 15px;
+  opacity: 0.5;
+  background-color: var(--PrimaryColor);
+}
+
+.CardFITTECH .left-header span {
+  font-size: 12px;
+  opacity: 0.5;
+  color: var(--GreyColorTwo);
 }
 
 .card-number {
-  margin-top: 40px;
+  margin-top: 20px;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -183,13 +219,11 @@ li {
 .CardFITTECH .card-holder span {
   color: var(--WhiteColor);
   font-family: "Barlow Condensed", sans-serif;
-
 }
 
 .card label {
   font-size: 24px;
   font-family: "Barlow Condensed", sans-serif;
-
 }
 .card-infos {
   width: 40%;
@@ -201,7 +235,6 @@ li {
 .card-infos .cvv span {
   color: var(--WhiteColor);
   font-family: "Barlow Condensed", sans-serif;
-
 }
 
 .Home-container {
@@ -253,10 +286,15 @@ li {
   color: var(--PrimaryColor);
 }
 
-.total-sales h3 span {
+.CardSaving .total-sales h3 span {
   position: absolute;
   top: -8px;
   color: #063b87;
+}
+
+.CardAccount .total-sales h3 span {
+  position: absolute;
+  top: -8px;
 }
 
 .CardAccount {
@@ -273,9 +311,15 @@ li {
 
 .right-wallet span,
 .right-transaction span,
-.header span {
+.header span,
+.Activity-header span,
+.header-left span {
   color: #063b87;
   font-size: 22px;
+}
+
+.header-left span {
+  color: var(--WhiteColor);
 }
 
 .right-transaction {
@@ -333,14 +377,16 @@ li {
 }
 
 .TableTransaction::-webkit-scrollbar,
-.Table-expense::-webkit-scrollbar {
+.Table-expense::-webkit-scrollbar,
+.Table-history::-webkit-scrollbar {
   background-color: rgba(230, 230, 230, 0.5);
   border-radius: 2px;
   width: 5px;
 }
 
 .TableTransaction::-webkit-scrollbar-thumb,
-.Table-expense::-webkit-scrollbar-thumb {
+.Table-expense::-webkit-scrollbar-thumb,
+.Table-history::-webkit-scrollbar-thumb {
   background-color: var(--PrimaryColor);
   width: 5px;
   border-radius: 2px;
@@ -378,10 +424,15 @@ li {
   overflow-y: scroll;
 }
 
-.TableExpense th {
+.TableExpense th,
+.TableHistory th {
   font-size: 14px;
   color: var(--GreyColorOne);
   font-weight: 400;
+}
+
+.TableHistory th {
+  font-size: 16px;
 }
 
 .TableExpense th td,
@@ -390,6 +441,11 @@ li {
   text-align: center;
 }
 
+.TableHistory th td,
+.Table-history tr td {
+  width: calc(100% / 5);
+  text-align: center;
+}
 
 /* login page style */
 .container {
@@ -556,7 +612,6 @@ form.sign-in-form {
   transition: 0.5s;
 }
 
-
 .cnx-btn {
   height: 60px;
   margin-top: 60px;
@@ -716,7 +771,6 @@ form.sign-in-form {
   font-size: 20px;
   color: var(--PrimaryColor);
   font-weight: 100;
-
 }
 
 .left-panel .image-login {
@@ -724,7 +778,6 @@ form.sign-in-form {
   align-items: center;
   justify-content: center;
 }
-
 
 .right-panel .content,
 .right-panel .image-login {
@@ -782,4 +835,260 @@ form.sign-in-form {
 
 #demande-accee {
   z-index: 1;
+}
+
+.Calendar-container {
+  background-color: var(--SecondaryColor);
+  border-radius: 30px;
+}
+
+.Calendar-header {
+  padding-bottom: 16px;
+  border-bottom: 0.3px solid rgb(130, 130, 130, 0.4);
+}
+
+.today-cercle {
+  background-color: var(--PrimaryColor);
+  color: var(--WhiteColor);
+}
+
+.today-cercle:hover {
+  background-color: var(--SecondaryColor);
+}
+
+.BackAccount,
+.SendPayment,
+.Activity {
+  width: 100%;
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+.BackAccount-container {
+  width: 100%;
+  height: calc(100vh - 90px);
+}
+
+.BackAccount-container h2 {
+  color: var(--PrimaryColor);
+  font-size: 40px;
+}
+
+.BackAccount-container .input-item label {
+  font-size: 18px;
+  color: var(--PrimaryColor);
+}
+
+.BackAccount-container .input-item input {
+  width: 541px;
+  height: 67px;
+  background-color: #ebebeb;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 2%;
+  font-size: 16px;
+}
+
+.SendPayment .BackAccount-container .Amount-input-class {
+  width: 541px;
+  height: 67px;
+  background-color: #ebebeb;
+  border-radius: 10px;
+  padding: 0 3%;
+}
+
+.SendPayment .BackAccount-container .Amount-input-class input {
+  width: 511px;
+  height: 67px;
+  background-color: #ebebeb;
+  border-radius: 10px;
+}
+
+.Bank-btn {
+  width: 541px;
+  height: 67px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.BackAccount-container .agree-btn {
+  background-color: var(--PrimaryColor);
+  color: var(--WhiteColor);
+}
+
+.BackAccount-container .cancel-btn {
+  background-color: #ebebeb;
+}
+
+.Activity-container {
+  width: 100%;
+  height: calc(100vh - 90px);
+}
+
+.Activity-container .Activity-header {
+  width: 100%;
+  padding: 0 7%;
+  margin-top: 32px;
+}
+
+.Activity-input {
+  width: 416px;
+  height: 52px;
+  background-color: #ebebeb;
+  border-radius: 10px;
+  padding: 0 2%;
+}
+
+.Activity-input input {
+  width: 80%;
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  font-size: 16px;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+.Activity-input .icon {
+  font-size: 24px;
+}
+
+.TableHistory {
+  width: 100%;
+  height: 70vh;
+  padding: 0 7%;
+  margin-top: 40px;
+}
+
+.TableHistory th {
+  border-bottom: 1px solid var(--SecondaryColor);
+  padding-bottom: 16px;
+}
+
+.Table-history {
+  height: fit-content;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.Wallet {
+  width: 100%;
+  height: fit-content;
+  background-color: var(--PrimaryColor);
+}
+
+.Wallet-header {
+  background-color: var(--PrimaryColor);
+  width: 100%;
+  height: 100vh;
+}
+
+.Wallet-header .NavBar .logo h2 {
+  color: var(--WhiteColor);
+}
+
+.Wallet-header .NavBar ul {
+  background-color: var(--WhiteColor);
+}
+
+.Wallet-header .NavBar .Wallet {
+  background-color: rgba(230, 230, 230);
+}
+
+.Wallet-header .NavBar .Wallet a {
+  color: var(--BlackColor);
+}
+
+.Wallet-header .NavBar .profile-class {
+  background-color: var(--WhiteColor);
+}
+
+.Wallet-header-container {
+  width: 100%;
+  height: calc(100vh - 90px);
+}
+
+.Wallet-header-container .header-left {
+  width: 40%;
+  height: 100%;
+  padding: 0 4%;
+}
+
+.Wallet-header-container .header-left .CardFITTECH {
+  background: linear-gradient(45deg, #fcfdff 0%, #dbe7f8  35%, #ffffff 100%);
+}
+
+.Wallet-header-container .header-left .CardFITTECH .logo h2{
+  color: var(--PrimaryColor);
+}
+
+.Wallet-header-container .header-left .CardFITTECH .left-header span,
+.Wallet-header-container .header-left .CardFITTECH .card-number span,
+.Wallet-header-container .header-left .CardFITTECH .card-holder span,
+.Wallet-header-container .header-left .CardFITTECH .card-holder label, .card-infos .exp label,
+.Wallet-header-container .header-left .CardFITTECH .card-infos .exp span,
+.Wallet-header-container .header-left .CardFITTECH .card-infos .cvv label,
+.Wallet-header-container .header-left .CardFITTECH .card-infos .cvv span {
+  color: var(--PrimaryColor);
+}
+
+
+.rapport .CardAccount{
+  border: 1px solid var(--ThirdColor);
+  width: 60%;
+  height: 200px;
+}
+
+.rapport .CardAccount span,
+.rapport .CardAccount h3{
+  color: var(--ThirdColor);
+}
+
+.rapport-item{
+  background-color: red;
+  width: fit-content;
+  height: 40px;
+  padding: 0 20px;
+  background-color: var(--WhiteColor);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.rapport-item span{
+  color: var(--PrimaryColor);
+  font-size: 14px;
+}
+
+.rapport-item .icon{
+  color: var(--PrimaryColor);
+  font-size: 18px;
+}
+
+.header-right{
+  width: 60%;
+  padding: 0 4% 0 2%;
+  height: fit-content;
+  place-items: center;
+  gap: 80px 20px;
+  margin-top: 65px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.header-right .CardSaving{
+  width: 100%;
+  height: 200px;
+  background-color: var(--WhiteColor);
+}
+
+.Wallet-Bank{
+  width: 100%;
+  height: 100vh;
+  background-color: var(--WhiteColor);
+  border-radius: 50px 50px 0 0;
 }
