@@ -2,8 +2,7 @@ import { FaUserMd } from "react-icons/fa";
 import { useState } from "react";
 import AcceeButton from "../components/acceeButton";
 import BackButton from "../components/backLoginbutton";
-// import AcceeButton from "../components/acceeButton";
-// import BackButton from "../components/backLoginbutton";
+
 
 export default function Login() {
   const [openPanel, setOpenPanel] = useState(false);

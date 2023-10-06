@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { IoMdSettings } from "react-icons/io";
 import AsideBar from "./CardFITTECH";
+import NavBarLogo from "./NavBarLogo";
 
 export default function NavBar() {
   const [activeAsideBar, setActiveAsideBar] = useState(false);
@@ -11,21 +12,19 @@ export default function NavBar() {
   };
   return (
     <div className="NavBar flex justify-around items-center">
-      <div className="logo">
-        <h2>fittech.</h2>
-      </div>
+      <NavBarLogo />
       <ul className="flex justify-center items-center gap-6">
         <li className="Dashboard flex justify-center items-center">
           <a href="/">Dashboard</a>
         </li>
-        <li className="flex justify-center items-center">
-          <a href="/Login">Wallet</a>
+        <li className="Wallet flex justify-center items-center">
+          <a href="/Wallet">Wallet</a>
         </li>
-        <li className="flex justify-center items-center">
-          <a href="#">Profile</a>
+        <li className="Send flex justify-center items-center">
+          <a href="/Send">Send</a>
         </li>
-        <li className="flex justify-center items-center">
-          <a href="#">Profile</a>
+        <li className="Activity flex justify-center items-center">
+          <a href="/Activity">Activity</a>
         </li>
       </ul>
       <div className="profile-class flex items-center">

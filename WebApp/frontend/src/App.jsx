@@ -1,7 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import Login from "./pages/loginPage";
+import Wallet from "./pages/Wallet";
+import BankAccount from "./pages/BankAccount";
+import SendPayment from "./pages/SendPayment";
+import Activity from "./pages/Activity";
 
 function App() {
   return (
@@ -9,7 +12,9 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/Wallet" element={<Wallet />}></Route>
+          <Route path="/Send" element={<SendPayment />}></Route>
+          <Route path="/Activity" element={<Activity />}></Route>
         </Routes>
       </main>
     </BrowserRouter>
