@@ -29,7 +29,7 @@ function App() {
 
           <Route path="/Wallet" element={<Wallet />}></Route>
           <Route path="/Operation" element={<Operation />}></Route>
-          {/* <Route path="/Activity" element={<Activity />}></Route> */}
+          <Route path="/Activity" element={<Activity />}></Route>
           <Route path="/Send" element={<SendPayment />}></Route>
           <Route path="/Request" element={<RequestPayment />}></Route>
           <Route path="/Withdraw" element={<Withdraw />}></Route>
