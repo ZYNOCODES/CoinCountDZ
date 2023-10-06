@@ -8,6 +8,8 @@ import TableExpense from "../components/Tables/TableExpense";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ChartExpenses from "../components/ChartExpenses";
+import Calendar from "../components/Calendar";
 
 export default function Home() {
   const notify = (message) => toast.error(message);
@@ -41,7 +43,7 @@ export default function Home() {
     };
     fetchWalletData();
   }, [WalletData, user?.token]);
-  
+
   return (
     <div className="Home flex">
       <NavBar />
@@ -51,7 +53,7 @@ export default function Home() {
             <CardAccount Data={WalletData} />
             <CardSaving Data={WalletData} />
           </div>
-          <div className="left-expenses flex flex-col gap-6">
+          <div className="left-expenses flex flex-col items-center gap-2">
             <div className="header flex items-center justify-between">
               <span>Expenses</span>
               <select>
@@ -59,6 +61,7 @@ export default function Home() {
                 <option value="month">Last month</option>
               </select>
             </div>
+            <ChartExpenses />
           </div>
           <div className="left-expenses expense-table flex flex-col gap-6">
             <div className="header flex items-center justify-between">
@@ -70,19 +73,13 @@ export default function Home() {
             <TableExpense />
           </div>
         </div>
-        <div className="right-class flex flex-col gap-8">
+        <div className="right-class flex flex-col gap-8 items-center">
           <div className="right-wallet flex flex-col mt-4">
             <span>Wallet</span>
             <CardFITTECH />
           </div>
-          <div className="right-transaction flex flex-col mt-4 pr-8">
-            <div className="title flex items-center justify-between">
-              <span>Recent transaction</span>
-              <span className="see-all">See all</span>
-            </div>
-            <div className="right-table mt-3">
-              <TableTransaction />
-            </div>
+          <div className="right-transaction flex justify-center">
+            <Calendar />
           </div>
         </div>
       </div>

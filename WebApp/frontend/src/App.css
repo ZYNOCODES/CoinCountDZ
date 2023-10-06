@@ -8,8 +8,8 @@
 }
 
 :root {
-  --PrimaryColor: #063b87;
-  --SecondaryColor: #dbe7f8;
+  --PrimaryColor: rgb(6, 59, 135);
+  --SecondaryColor: rgb(219, 231, 248);
   --ThirdColor: #fcfdff;
   --BlackColor: #000000;
   --WhiteColor: #ffffff;
@@ -38,7 +38,7 @@ li {
   width: 100%;
   height: 75px;
   margin-top: 10px;
-  padding: 10px 3%;
+  padding: 10px 5%;
   position: relative;
 }
 
@@ -219,7 +219,7 @@ li {
 .CardFITTECH {
   width: 380px;
   height: 230px;
-  margin: 0 auto;
+
   padding: 0 20px;
   background: linear-gradient(45deg, #020024 0%, #008cb1 35%, #063b87 100%);
   /* border: 1px solid rgba(0, 0, 0, 0.3); */
@@ -289,12 +289,13 @@ li {
 }
 
 .left-class {
-  width: 60%;
+  width: 65%;
   height: fit-content;
+  padding-left: 2%;
 }
 
 .right-class {
-  width: 40%;
+  width: 30%;
   height: 100%;
 }
 
@@ -439,11 +440,15 @@ li {
 
 .left-expenses {
   width: 90%;
-  height: 50vh;
+  height: 65vh;
   border-radius: 20px;
   border: 1px solid var(--PrimaryColor);
   padding: 0 15px;
   padding-top: 10px;
+}
+
+.left-expenses .header{
+  width: 100%;
 }
 
 .left-expenses .header select {
