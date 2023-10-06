@@ -8,11 +8,12 @@ import TableExpense from "../components/Tables/TableExpense";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 export default function Home() {
   const notify = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
   const { user } = useAuthContext();
-  const [WalletData, setWalletData] = useState('')
+  const [WalletData, setWalletData] = useState("");
   // Fetch Wallet Data
   useEffect(() => {
     const fetchWalletData = async () => {
@@ -36,7 +37,7 @@ export default function Home() {
             console.error("Error resieving Wallet date", response.error);
           }
         });
-      } 
+      }
     };
     fetchWalletData();
   }, [WalletData, user?.token]);
@@ -46,8 +47,8 @@ export default function Home() {
       <div className="Home-container flex mt-3 gap-8">
         <div className="left-class flex flex-col items-center gap-8">
           <div className="left-top flex items-center justify-around mt-4">
-            <CardAccount Data={WalletData}/>
-            <CardSaving Data={WalletData}/>
+            <CardAccount Data={WalletData} />
+            <CardSaving Data={WalletData} />
           </div>
           <div className="left-expenses flex flex-col gap-6">
             <div className="header flex items-center justify-between">
