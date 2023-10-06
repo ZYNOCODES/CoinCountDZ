@@ -69,8 +69,11 @@ const AddNewBank = async (req, res) => {
 const SendMoney = async (req, res) => {
     const { UserID, BankID, AccountNumber, Amount } = req.body;
     try {
-        if(!UserID, !BankID, !AccountNumber, !Amount){
+        if(!BankID || !AccountNumber || !Amount || Amount == '' || AccountNumber == ''){
             return res.status(404).json({ message: "Tout les champs doivent etre remplis" });
+        }
+        if(Amount > 200000){
+            return res.status(404).json({ message: "You can't make a operation greater than 200000" });
         }
         const bankClient = await BankClient.findOne({
             where:{
@@ -89,11 +92,25 @@ const SendMoney = async (req, res) => {
         if(!wallet){
             return res.status(404).json({ message: "dont have a wellet yet" });
         }
-        wallet.Balance = parseInt(wallet.Balance) - parseInt(Amount); 
-        await wallet.save().then((result)=>{
-            
-        }).catch(err => console.log(err))
-        res.status(200).json({ message: "money sended successfully" });
+        if(wallet.Balance >= Amount) {
+            if(wallet.Balance == wallet.Savings){
+                return res.status(404).json({ message: "You dont have enough money to do this operation" });
+            }else{
+                wallet.Balance = parseInt(wallet.Balance) - parseInt(Amount)
+                await wallet.save().then(async (result)=>{
+                    await Transaction.create({
+                        Name: 'Send money',
+                        Amount: parseInt(-Amount),
+                        Type: 'Send',
+                        Sender: 'Me',
+                        Reciver: AccountNumber,
+                    });
+                }).catch(err => console.log(err))
+                res.status(200).json({ message: "money sended successfully" });
+            }
+        }else{
+            return res.status(404).json({ message: "You dont have enough money to do this operation" });
+        }
     } catch (error) {
       console.error(error);
       res.status(500).send('Error creatting Bank');

@@ -10,9 +10,10 @@ export default function SendPayment() {
   const { user } = useAuthContext();
   const [BankData, setBankData] = useState('');
   const [bankName, setBankName] = useState('');
-  const [bankID, setBankID] = useState(''); 
-  const [AccountNumber, setAccountNumber] = useState('')
-  const [Amount, setAmount] = useState('')
+  const [bankID, setBankID] = useState(null); 
+  const [AccountNumber, setAccountNumber] = useState(null);
+  const [Amount, setAmount] = useState(null);
+  
   const handleBankChange = (e) => {
     const selectedOption = e.target.value; 
     const selectedID = e.target.options[e.target.selectedIndex].getAttribute('data-id'); 
@@ -20,6 +21,7 @@ export default function SendPayment() {
     setBankName(selectedOption);
     setBankID(selectedID);
   }; 
+
   // Fetch Bank Data
   useEffect(() => {
     const fetchBankData = async () => {
@@ -40,35 +42,40 @@ export default function SendPayment() {
                 console.error("Error fetching Bank data:", error);
               });
           } else {
-            console.error("Error resieving Bank date", response.error);
+            console.error("Error receiving Bank date", response.error);
           }
         });
       } 
     };
     fetchBankData();
   }, [BankData, user?.token]);
-  async function submitSendMoney(e) {
+  const submitSendMoney = async (e) =>{
     e.preventDefault();
-    const reponse = await fetch("http://localhost:8000/Bank/sendmoney", {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        UserID: user?.id,
-        BankID: bankID,
-        AccountNumber: AccountNumber,
-        Amount:Amount}),
+    try {
+      const response = await fetch("http://localhost:8000/Bank/sendmoney", {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          UserID: user?.id,
+          BankID: bankID,
+          AccountNumber: AccountNumber,
+          Amount: Amount,
+        }),
       });
-
-    const json = await reponse.json();
-
-    if (!reponse.ok) {
-      notify(json.message);
-    }
-    if (reponse.ok) {
-      notify(json.message);
+  
+      const json = await response.json();
+  
+      if (!response.ok) {
+        notify(json.message);
+      }
+      if (response.ok) {
+        notifySuccess(json.message);
+      }
+    } catch (error) {
+      console.error("Error while processing JSON:", error);
     }
   }
   return (
@@ -83,7 +90,7 @@ export default function SendPayment() {
               <select type="text" onChange={handleBankChange}>
                 <option>Select a bank</option>
                 {BankData && BankData?.map((Data) => (
-                  <option key={Data?.id} value={Data?.Name}>
+                  <option key={Data?.id} value={Data?.Name} data-id={Data?.id}>
                       {Data?.Name}
                   </option>
                 ))}     
@@ -91,12 +98,12 @@ export default function SendPayment() {
             </div>
             <div className="input-item flex flex-col gap-2">
               <label>Account number</label>
-              <input type="text" onChange={(e)=>setAccountNumber(e)}/>
+              <input type="text" onChange={(e) => setAccountNumber(e.target.value)} />
             </div>
             <div className="input-item flex flex-col gap-2">
               <label>Amount</label>
               <div className="Amount-input-class flex items-center">
-                <input type="text" onChange={(e)=>setAmount(e)}/>
+                <input type="text" onChange={(e) => setAmount(e.target.value)} />
                 <span>DZA</span>
               </div>
             </div>
