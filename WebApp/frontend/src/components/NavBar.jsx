@@ -11,7 +11,7 @@ export default function NavBar() {
     setActiveAsideBar(!activeAsideBar);
   };
   return (
-    <div className="NavBar flex justify-around items-center">
+    <div className="NavBar flex justify-between items-center">
       <NavBarLogo />
       <ul className="flex justify-center items-center gap-6">
         <li className="Dashboard flex justify-center items-center">

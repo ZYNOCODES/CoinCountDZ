@@ -11,6 +11,7 @@ import CardSaving from "../components/CardSaving";
 import CardSpending from "../components/CardSpending";
 import CardSpendingMoy from "../components/CardSpendingMoy";
 import CardGoal from "../components/CardGoal";
+import CardBank from "../components/CardBank";
 
 export default function Wallet() {
   return (
@@ -41,13 +42,27 @@ export default function Wallet() {
         </div>
       </div>
       <div className="Wallet-Bank">
-        <div className="Bank-title">
-          <BiSolidBank />
-          <h2>Bank</h2>
-          <div className="add-class">
-            <AiOutlinePlus />
+        <div className="Bank-title flex items-center gap-4">
+          <div className="left-title flex items-center gap-2">
+            <BiSolidBank className="icon" />
+            <h2>Bank</h2>
+          </div>
+          <div className="add-class flex items-center justify-center">
+            <AiOutlinePlus className="icon" />
           </div>
         </div>
+
+        <div className="All-bank-accounts flex items-center mt-6">
+          <div className="left flex justify-center">
+            <span>Right there you can see all your banks accounts</span>
+          </div>
+          <div className="right flex items-center gap-5">
+            <CardBank />
+            <CardBank />
+          </div>
+        </div>
+
+        
       </div>
     </div>
   );
