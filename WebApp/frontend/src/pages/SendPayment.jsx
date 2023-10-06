@@ -8,11 +8,11 @@ export default function SendPayment() {
   const notify = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
   const { user } = useAuthContext();
-  const [BankData, setBankData] = useState("");
-  const [bankName, setBankName] = useState("");
-  const [bankID, setBankID] = useState("");
-  const [AccountNumber, setAccountNumber] = useState("");
-  const [Amount, setAmount] = useState("");
+  const [BankData, setBankData] = useState('');
+  const [bankName, setBankName] = useState('');
+  const [bankID, setBankID] = useState(''); 
+  const [AccountNumber, setAccountNumber] = useState('')
+  const [Amount, setAmount] = useState('')
   const handleBankChange = (e) => {
     const selectedOption = e.target.value;
     const selectedID =
@@ -20,7 +20,7 @@ export default function SendPayment() {
 
     setBankName(selectedOption);
     setBankID(selectedID);
-  };
+  }; 
   // Fetch Bank Data
   useEffect(() => {
     const fetchBankData = async () => {
@@ -41,14 +41,14 @@ export default function SendPayment() {
                 console.error("Error fetching Bank data:", error);
               });
           } else {
-            console.error("Error resieving Bank date", response.error);
+            console.error("Error receiving Bank date", response.error);
           }
         });
       }
     };
     fetchBankData();
   }, [BankData, user?.token]);
-  async function submitSendMoney(e) {
+  const submitSendMoney = async (e) =>{
     e.preventDefault();
     const reponse = await fetch("http://localhost:8000/Bank/sendmoney", {
       method: "PATCH",
@@ -60,9 +60,8 @@ export default function SendPayment() {
         UserID: user?.id,
         BankID: bankID,
         AccountNumber: AccountNumber,
-        Amount: Amount,
-      }),
-    });
+        Amount:Amount}),
+      });
 
     const json = await reponse.json();
 
@@ -100,9 +99,8 @@ export default function SendPayment() {
               <label>Bank name</label>
               <select type="text" onChange={handleBankChange}>
                 <option>Select a bank</option>
-                {BankData &&
-                  BankData?.map((Data) => (
-                    <option key={Data?.id} value={Data?.Name}>
+                {BankData && BankData?.map((Data) => (
+                  <option key={Data?.id} value={Data?.Name}>
                       {Data?.Name}
                     </option>
                   ))}
