@@ -172,29 +172,39 @@ li {
 }
 
 .CardFITTECH {
-  width: 360px;
+  width: 380px;
   height: 230px;
   margin: 0 auto;
-  padding-left: 20px;
+  padding: 0 20px;
   background: linear-gradient(45deg, #020024 0%, #008cb1 35%, #063b87 100%);
   /* border: 1px solid rgba(0, 0, 0, 0.3); */
   border-radius: 15px;
 }
 
-.approximation {
-  width: 30px;
-  transform: rotate(90deg);
+.CardFITTECH .logo h2 {
+  color: var(--WhiteColor);
+  font-size: 20px;
 }
 
 .chip {
   height: 40px;
-  position: relative;
-  left: 87%;
-  bottom: 20px;
+}
+
+.left-header .left-ligne {
+  width: 2px;
+  height: 15px;
+  opacity: 0.5;
+  background-color: var(--PrimaryColor);
+}
+
+.CardFITTECH .left-header span {
+  font-size: 12px;
+  opacity: 0.5;
+  color: var(--GreyColorTwo);
 }
 
 .card-number {
-  margin-top: 40px;
+  margin-top: 20px;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -302,9 +312,14 @@ li {
 .right-wallet span,
 .right-transaction span,
 .header span,
-.Activity-header span {
+.Activity-header span,
+.header-left span {
   color: #063b87;
   font-size: 22px;
+}
+
+.header-left span {
+  color: var(--WhiteColor);
 }
 
 .right-transaction {
@@ -962,4 +977,118 @@ input[type="search"]::-webkit-search-results-decoration {
   overflow-y: scroll;
 }
 
-::-webkit-scrollbar ;
+.Wallet {
+  width: 100%;
+  height: fit-content;
+  background-color: var(--PrimaryColor);
+}
+
+.Wallet-header {
+  background-color: var(--PrimaryColor);
+  width: 100%;
+  height: 100vh;
+}
+
+.Wallet-header .NavBar .logo h2 {
+  color: var(--WhiteColor);
+}
+
+.Wallet-header .NavBar ul {
+  background-color: var(--WhiteColor);
+}
+
+.Wallet-header .NavBar .Wallet {
+  background-color: rgba(230, 230, 230);
+}
+
+.Wallet-header .NavBar .Wallet a {
+  color: var(--BlackColor);
+}
+
+.Wallet-header .NavBar .profile-class {
+  background-color: var(--WhiteColor);
+}
+
+.Wallet-header-container {
+  width: 100%;
+  height: calc(100vh - 90px);
+}
+
+.Wallet-header-container .header-left {
+  width: 40%;
+  height: 100%;
+  padding: 0 4%;
+}
+
+.Wallet-header-container .header-left .CardFITTECH {
+  background: linear-gradient(45deg, #fcfdff 0%, #dbe7f8  35%, #ffffff 100%);
+}
+
+.Wallet-header-container .header-left .CardFITTECH .logo h2{
+  color: var(--PrimaryColor);
+}
+
+.Wallet-header-container .header-left .CardFITTECH .left-header span,
+.Wallet-header-container .header-left .CardFITTECH .card-number span,
+.Wallet-header-container .header-left .CardFITTECH .card-holder span,
+.Wallet-header-container .header-left .CardFITTECH .card-holder label, .card-infos .exp label,
+.Wallet-header-container .header-left .CardFITTECH .card-infos .exp span,
+.Wallet-header-container .header-left .CardFITTECH .card-infos .cvv label,
+.Wallet-header-container .header-left .CardFITTECH .card-infos .cvv span {
+  color: var(--PrimaryColor);
+}
+
+
+.rapport .CardAccount{
+  border: 1px solid var(--ThirdColor);
+  width: 60%;
+  height: 200px;
+}
+
+.rapport .CardAccount span,
+.rapport .CardAccount h3{
+  color: var(--ThirdColor);
+}
+
+.rapport-item{
+  background-color: red;
+  width: fit-content;
+  height: 40px;
+  padding: 0 20px;
+  background-color: var(--WhiteColor);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.rapport-item span{
+  color: var(--PrimaryColor);
+  font-size: 14px;
+}
+
+.rapport-item .icon{
+  color: var(--PrimaryColor);
+  font-size: 18px;
+}
+
+.header-right{
+  width: 60%;
+  padding: 0 4% 0 2%;
+  height: fit-content;
+  place-items: center;
+  gap: 80px 20px;
+  margin-top: 65px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.header-right .CardSaving{
+  width: 100%;
+  height: 200px;
+  background-color: var(--WhiteColor);
+}
+
+.Wallet-Bank{
+  width: 100%;
+  height: 100vh;
+  background-color: var(--WhiteColor);
+  border-radius: 50px 50px 0 0;
+}
