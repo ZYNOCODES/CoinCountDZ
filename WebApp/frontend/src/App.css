@@ -907,6 +907,15 @@ form.sign-in-form {
   border-radius: 10px;
 }
 
+.SendPayment .BackAccount-container .input-section select{
+  width: 541px;
+  height: 67px;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 10px;
+  background-color: #ebebeb;
+}
+
 .Bank-btn {
   width: 541px;
   height: 67px;
@@ -1025,6 +1034,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .Wallet-header-container .header-left .CardFITTECH {
   background: linear-gradient(45deg, #fcfdff 0%, #dbe7f8 35%, #ffffff 100%);
+  
+  
 }
 
 .Wallet-header-container .header-left .CardFITTECH .logo h2 {

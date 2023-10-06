@@ -14,8 +14,15 @@ function App() {
     <BrowserRouter>
       <main>
         <Routes>
-          <Route path="/" element={!user ? <Login /> : <Navigate to="/Dashboard" />}></Route>
-          <Route path="/Dashboard" element={user ? <Home /> : <Navigate to="/" />}></Route>
+          <Route
+            path="/"
+            element={!user ? <Login /> : <Navigate to="/Dashboard" />}
+          ></Route>
+          <Route
+            path="/Dashboard"
+            element={user ? <Home /> : <Navigate to="/" />}
+          ></Route>
+
           <Route path="/Wallet" element={<Wallet />}></Route>
           <Route path="/Send" element={<Send />}></Route>
           <Route path="/Activity" element={<Activity />}></Route>

@@ -5,7 +5,7 @@ import CardFITTECH from "../components/CardFITTECH";
 import CardAccount from "../components/CardAccount";
 import { BsFillFileEarmarkArrowUpFill } from "react-icons/bs";
 import { BiSolidBank } from "react-icons/bi";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineSearch } from "react-icons/ai";
 import CardSaving from "../components/CardSaving";
 import CardSpending from "../components/CardSpending";
 import CardSpendingMoy from "../components/CardSpendingMoy";
@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuthContext } from "../hooks/useAuthContext";
 import CardBank from "../components/CardBank";
+import TableTransaction from "../components/Tables/TableTransaction";
 
 export default function Wallet() {
   const notify = (message) => toast.error(message);
@@ -56,7 +57,7 @@ export default function Wallet() {
             <span>Wallet</span>
             <CardFITTECH />
             <div className="rapport flex mt-8 gap-8">
-              <CardAccount Data={WalletData}/>
+              <CardAccount Data={WalletData} />
               <div className="rapport-item flex items-center gap-2">
                 <BsFillFileEarmarkArrowUpFill className="icon" />
                 <span>Rapport</span>
@@ -95,7 +96,18 @@ export default function Wallet() {
           </div>
         </div>
 
-        
+        <div className="right-transaction flex flex-col mt-12 pr-8">
+          <div className="title flex items-center justify-between mb-4">
+            <span>Recent transaction</span>
+            <div className="Activity-input flex items-center justify-between">
+              <input type="search" placeholder="Search.." />
+              <AiOutlineSearch className="icon" />
+            </div>
+          </div>
+          <div className="right-table mt-3">
+            <TableTransaction />
+          </div>
+        </div>
       </div>
     </div>
   );

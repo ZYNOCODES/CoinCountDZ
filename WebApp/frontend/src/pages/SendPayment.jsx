@@ -10,18 +10,17 @@ export default function SendPayment() {
   const { user } = useAuthContext();
   const [BankData, setBankData] = useState('');
   const [bankName, setBankName] = useState('');
-  const [bankID, setBankID] = useState(null); 
-  const [AccountNumber, setAccountNumber] = useState(null);
-  const [Amount, setAmount] = useState(null);
-  
+  const [bankID, setBankID] = useState(''); 
+  const [AccountNumber, setAccountNumber] = useState('')
+  const [Amount, setAmount] = useState('')
   const handleBankChange = (e) => {
-    const selectedOption = e.target.value; 
-    const selectedID = e.target.options[e.target.selectedIndex].getAttribute('data-id'); 
+    const selectedOption = e.target.value;
+    const selectedID =
+      e.target.options[e.target.selectedIndex].getAttribute("data-id");
 
     setBankName(selectedOption);
     setBankID(selectedID);
   }; 
-
   // Fetch Bank Data
   useEffect(() => {
     const fetchBankData = async () => {
@@ -45,37 +44,32 @@ export default function SendPayment() {
             console.error("Error receiving Bank date", response.error);
           }
         });
-      } 
+      }
     };
     fetchBankData();
   }, [BankData, user?.token]);
   const submitSendMoney = async (e) =>{
     e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:8000/Bank/sendmoney", {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          UserID: user?.id,
-          BankID: bankID,
-          AccountNumber: AccountNumber,
-          Amount: Amount,
-        }),
+    const reponse = await fetch("http://localhost:8000/Bank/sendmoney", {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        UserID: user?.id,
+        BankID: bankID,
+        AccountNumber: AccountNumber,
+        Amount:Amount}),
       });
-  
-      const json = await response.json();
-  
-      if (!response.ok) {
-        notify(json.message);
-      }
-      if (response.ok) {
-        notifySuccess(json.message);
-      }
-    } catch (error) {
-      console.error("Error while processing JSON:", error);
+
+    const json = await reponse.json();
+
+    if (!reponse.ok) {
+      notify(json.message);
+    }
+    if (reponse.ok) {
+      notify(json.message);
     }
   }
   return (
@@ -86,24 +80,35 @@ export default function SendPayment() {
         <form className="flex flex-col gap-8" onSubmit={submitSendMoney}>
           <div className="input-items flex flex-col gap-4">
             <div className="input-item flex flex-col gap-2">
-              <label>Bank name</label>
-              <select type="text" onChange={handleBankChange}>
-                <option>Select a bank</option>
-                {BankData && BankData?.map((Data) => (
-                  <option key={Data?.id} value={Data?.Name} data-id={Data?.id}>
-                      {Data?.Name}
-                  </option>
-                ))}     
-              </select>
-            </div>
-            <div className="input-item flex flex-col gap-2">
-              <label>Account number</label>
-              <input type="text" onChange={(e) => setAccountNumber(e.target.value)} />
+              <label>Account ID</label>
+              <input type="text" onChange={(e) => setAccountNumber(e)} />
             </div>
             <div className="input-item flex flex-col gap-2">
               <label>Amount</label>
               <div className="Amount-input-class flex items-center">
-                <input type="text" onChange={(e) => setAmount(e.target.value)} />
+                <input type="text" onChange={(e) => setAmount(e)} />
+                <span>DZA</span>
+              </div>
+            </div>
+            <div className="input-item input-section flex flex-col gap-2">
+              <label>Bank name</label>
+              <select type="text" onChange={handleBankChange}>
+                <option>Select a bank</option>
+                {BankData && BankData?.map((Data) => (
+                  <option key={Data?.id} value={Data?.Name}>
+                      {Data?.Name}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            <div className="input-item flex flex-col gap-2">
+              <label>Account number</label>
+              <input type="text" onChange={(e)=>setAccountNumber(e)}/>
+            </div>
+            <div className="input-item flex flex-col gap-2">
+              <label>Amount</label>
+              <div className="Amount-input-class flex items-center">
+                <input type="text" onChange={(e)=>setAmount(e)}/>
                 <span>DZA</span>
               </div>
             </div>
@@ -119,7 +124,7 @@ export default function SendPayment() {
           </div>
         </form>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }
