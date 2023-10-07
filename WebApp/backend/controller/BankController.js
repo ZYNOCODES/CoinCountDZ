@@ -67,9 +67,9 @@ const AddNewBank = async (req, res) => {
 }
 //send money
 const SendMoney = async (req, res) => {
-    const { UserID, BankID, AccountNumber, Amount } = req.body;
+    const { UserID, BankID, AccountNumber, Amount, Telephone } = req.body;
     try {
-        if(!BankID || !AccountNumber || !Amount || Amount == '' || AccountNumber == ''){
+        if(!BankID || !AccountNumber || !Amount || !Telephone ){
             return res.status(404).json({ message: "Tout les champs doivent etre remplis" });
         }
         if(Amount > 200000){
@@ -78,11 +78,12 @@ const SendMoney = async (req, res) => {
         const bankClient = await BankClient.findOne({
             where:{
                 BankID: BankID,
-                AccountNumber: AccountNumber
+                AccountNumber: AccountNumber,
+                Telephone: Telephone
             }
         });
         if(!bankClient){
-            return res.status(404).json({ message: "Account number incorrect" });
+            return res.status(404).json({ message: "Account number or phone number incorrect" });
         }
         const wallet = await Wallet.findOne({
             where:{
@@ -104,6 +105,7 @@ const SendMoney = async (req, res) => {
                         Type: 'Send',
                         Sender: 'Me',
                         Reciver: AccountNumber,
+                        UserID: UserID,
                     });
                 }).catch(err => console.log(err))
                 res.status(200).json({ message: "money sended successfully" });
@@ -111,6 +113,84 @@ const SendMoney = async (req, res) => {
         }else{
             return res.status(404).json({ message: "You dont have enough money to do this operation" });
         }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error creatting Bank');
+    }
+}
+//request payment
+const RequestPayment = async (req, res) => {
+    const { UserID, BankID, AccountNumber, Amount, Telephone } = req.body;
+    try {
+        if(!BankID || !AccountNumber || !Amount || !Telephone ){
+            return res.status(404).json({ message: "Tout les champs doivent etre remplis" });
+        }
+        if(Amount > 200000){
+            return res.status(404).json({ message: "You can't make a operation greater than 200000" });
+        }
+        const bankClient = await BankClient.findOne({
+            where:{
+                BankID: BankID,
+                AccountNumber: AccountNumber,
+                Telephone: Telephone
+            }
+        });
+        if(!bankClient){
+            return res.status(404).json({ message: "Account number or phone number incorrect" });
+        }
+        await Transaction.create({
+            Name: 'Request money',
+            Amount: parseInt(Amount),
+            Type: 'Request',
+            Sender: AccountNumber,
+            Reciver: 'Me',
+            UserID: UserID,
+        });
+        res.status(200).json({ message: "Request sended successfully" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error creatting Bank');
+    }
+}
+//windraw money
+const Windraw = async (req, res) => {
+    const { UserID, BankID, Amount } = req.body;
+    try {
+        if(!BankID || !Amount ){
+            return res.status(404).json({ message: "Tout les champs doivent etre remplis" });
+        }
+        if(Amount > 200000){
+            return res.status(404).json({ message: "You can't make a operation greater than 200000" });
+        }
+        const bankClient = await BankClient.findOne({
+            where:{
+                BankID: BankID,
+            }
+        });
+        if(!bankClient){
+            return res.status(404).json({ message: "Account incorrect" });
+        }
+        const wallet = await Wallet.findOne({
+            where:{
+                UserID: UserID,
+            }
+        });
+        if(!wallet){
+            return res.status(404).json({ message: "dont have a wellet yet" });
+        }
+        wallet.Balance = parseInt(wallet.Balance) + parseInt(Amount)
+        await wallet.save().then(async ()=>{
+            await Transaction.create({
+                Name: 'windraw money',
+                Amount: parseInt(Amount),
+                Type: 'windraw',
+                Sender: 'Me',
+                Reciver: 'Me',
+                UserID: UserID,
+            });
+        }).catch(err => console.log(err))
+        res.status(200).json({ message: "Request sended successfully" });
+        
     } catch (error) {
       console.error(error);
       res.status(500).send('Error creatting Bank');
@@ -152,5 +232,7 @@ module.exports = {
     GetAllBank,
     DeleteBank,
     AddNewBank,
-    SendMoney
+    SendMoney,
+    RequestPayment,
+    Windraw
 }
