@@ -426,7 +426,8 @@ li {
 
 .TableTransaction::-webkit-scrollbar,
 .Table-expense::-webkit-scrollbar,
-.Table-history::-webkit-scrollbar {
+.Table-history::-webkit-scrollbar,
+.Goals-Items::-webkit-scrollbar {
   background-color: rgba(230, 230, 230, 0.5);
   border-radius: 2px;
   width: 5px;
@@ -434,7 +435,8 @@ li {
 
 .TableTransaction::-webkit-scrollbar-thumb,
 .Table-expense::-webkit-scrollbar-thumb,
-.Table-history::-webkit-scrollbar-thumb {
+.Table-history::-webkit-scrollbar-thumbn,
+.Goals-Items::-webkit-scrollbar-thumb {
   background-color: var(--PrimaryColor);
   width: 5px;
   border-radius: 2px;
@@ -627,8 +629,6 @@ form.sign-in-form {
 .sign-in-form .input-field label {
   font-size: 15px;
 }
-
- 
 
 .btn-solid {
   width: 392px;
@@ -1080,7 +1080,7 @@ input[type="search"]::-webkit-search-results-decoration {
   left: -6px;
 }
 
-.Home .CardSwiper{
+.Home .CardSwiper {
   width: fit-content;
 }
 
@@ -1113,7 +1113,6 @@ input[type="search"]::-webkit-search-results-decoration {
 .rapport .CardAccount h3 {
   color: var(--ThirdColor);
 }
-
 
 .rapport-item {
   width: fit-content;
@@ -1167,7 +1166,7 @@ input[type="search"]::-webkit-search-results-decoration {
   margin-top: 65px;
 }
 
-.check-it{
+.check-it {
   width: 100%;
 }
 
@@ -1177,7 +1176,7 @@ input[type="search"]::-webkit-search-results-decoration {
   background-color: var(--WhiteColor);
 }
 
-.WalletAdvice{
+.WalletAdvice {
   width: 100%;
   background-color: var(--WhiteColor);
   border-radius: 20px;
@@ -1185,22 +1184,22 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 2%;
 }
 
-.Wallet-Advice-title span{
+.Wallet-Advice-title span {
   color: var(--PrimaryColor);
   font-size: 22px;
 }
 
-.WalletAdvice p{
+.WalletAdvice p {
   margin-top: 10px;
   margin-left: 55px;
   line-height: 30px;
 }
 
-.Advice-buttons{
+.Advice-buttons {
   width: 100%;
 }
 
-.Advice-buttons input{
+.Advice-buttons input {
   width: fit-content;
   cursor: pointer;
   padding: 0 10px;
@@ -1210,7 +1209,7 @@ input[type="search"]::-webkit-search-results-decoration {
   background-color: var(--PrimaryColor);
 }
 
-.Advice-buttons .icon{
+.Advice-buttons .icon {
   font-size: 30px;
   cursor: pointer;
   color: var(--PrimaryColor);
@@ -1295,15 +1294,15 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .CardBank-item span,
-.CardBank-item p{
+.CardBank-item p {
   color: var(--PrimaryColor);
 }
 
-.CardBank-item span{
+.CardBank-item span {
   font-size: 14px;
 }
 
-.CardBank-item p{
+.CardBank-item p {
   font-size: 13px;
 }
 
@@ -1311,11 +1310,93 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 100%;
 }
 
-.Transaction-Goal{
+.Transaction-Goal {
   width: 100%;
   height: 100%;
 }
 
-.Transaction-Goal .left-class{
+.Transaction-Goal .left-class {
   width: 45%;
 }
+
+.Transaction-Goal .right-class {
+  width: 55%;
+  height: 100%;
+  padding-left: 4%;
+}
+
+.add-goal-btn {
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  /* border: 1px solid var(--PrimaryColor); */
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.add-goal-btn:hover {
+  opacity: 1;
+  transition: 1s all ease;
+}
+
+.add-goal-btn .icon {
+  font-size: 40px;
+  color: var(--PrimaryColor);
+}
+
+.goal-items{
+  overflow-x: hidden;
+}
+
+.goal-item {
+  width: 170px;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid var(--PrimaryColor);
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.goal-item h3{
+  font-size: 24px;
+  color: var(--PrimaryColor);
+  text-transform: capitalize;
+}
+
+.goal-item span{
+  font-size: 22px;
+  color: var(--PrimaryColor);
+}
+
+.goal-item p{
+  font-size: 14px;
+  color: var(--PrimaryColor);
+}
+
+.GoalsItems{
+  width: fit-content;
+}
+
+.Goals-Items{
+  width: 300px;
+  height: 50vh;
+  border: 1px solid var(--PrimaryColor);
+  border-radius: 10px;
+  overflow-y: scroll;
+  padding: 5px;
+  padding-top: 30px;
+  position: relative;
+}
+
+.button{
+  position: absolute;
+  top: 5px;
+  right: 10%;
+  width: 10px;
+  width: 40Px;
+}
+
+
+
+
