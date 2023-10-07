@@ -1,10 +1,9 @@
 import React from "react";
 import NavBarLogo from "./NavBarLogo";
 
-import aprox from "../assets/aprox.png";
 import chip from "../assets/chip.png";
 
-export default function CardFITTECH() {
+export default function CardFITTECH({ id, Name, Number }) {
   return (
     <div className="CardFITTECH flex flex-col pt-4 pb-4">
       <div className="CardFITTECH-container flex items-center justify-between mb-20">
@@ -15,11 +14,11 @@ export default function CardFITTECH() {
             <span>online wallet</span>
           </div>
           <div className="card-number">
-            <span>1234 5678 9101 1121</span>
+            <span>**** **** **** {Number}</span>
           </div>
           <div className="card-holder flex flex-col">
             <label>Holder</label>
-            <span>KHALDI ABDELMOUMEN</span>
+            <span>{Name}</span>
           </div>
           <div className="card-infos flex justify-between">
             <div className="exp flex flex-col">

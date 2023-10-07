@@ -5,7 +5,7 @@ import CardFITTECH from "../components/CardFITTECH";
 import CardAccount from "../components/CardAccount";
 import { BsFillFileEarmarkArrowUpFill } from "react-icons/bs";
 import { BiSolidBank } from "react-icons/bi";
-import { AiOutlinePlus, AiOutlineSearch } from "react-icons/ai";
+import { AiFillFilePdf, AiOutlinePlus, AiOutlineSearch } from "react-icons/ai";
 import CardSaving from "../components/CardSaving";
 import CardSpending from "../components/CardSpending";
 import CardSpendingMoy from "../components/CardSpendingMoy";
@@ -15,15 +15,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAuthContext } from "../hooks/useAuthContext";
 import CardBank from "../components/CardBank";
 import TableTransaction from "../components/Tables/TableTransaction";
-import { useNavigate, useNavigation } from "react-router";
 
 export default function Wallet() {
   const notify = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
   const { user } = useAuthContext();
   const [WalletData, setWalletData] = useState('')
-  const navigate = useNavigate();
-
   // Fetch Wallet Data
   useEffect(() => {
     const fetchWalletData = async () => {
@@ -47,7 +44,7 @@ export default function Wallet() {
             console.error("Error resieving Wallet date", response.error);
           }
         });
-      } 
+      }
     };
     fetchWalletData();
   }, [WalletData, user?.token]);
@@ -58,15 +55,29 @@ export default function Wallet() {
     <div className="Wallet flex flex-col">
       <div className="Wallet-header flex flex-col">
         <NavBar />
-        <div className="Wallet-header-container flex mt-5 gap-8">
+        <div className="Wallet-header-container flex mt-5">
           <div className="header-left flex flex-col gap-8">
-            <span>Wallet</span>
-            <CardFITTECH />
+            <div className="header-left-header flex flex-col gap-8">
+              <span>Wallet</span>
+              <div className="card-button flex">
+                <CardSwiper />
+                <div className="rapport-item order-button flex items-center gap-2">
+                  <AiOutlinePlus className="icon" />
+                  <span>Order Card</span>
+                </div>
+              </div>
+            </div>
             <div className="rapport flex mt-8 gap-8">
               <CardAccount Data={WalletData} />
-              <div className="rapport-item flex items-center gap-2">
-                <BsFillFileEarmarkArrowUpFill className="icon" />
-                <span>Rapport</span>
+              <div className="rapport-button flex flex-col">
+                <div className="rapport-item flex items-center gap-2">
+                  <BsFillFileEarmarkArrowUpFill className="icon" />
+                  <span>Rapport</span>
+                </div>
+                <div className="rapport-item pdf-btn flex items-center gap-2">
+                  <AiFillFilePdf className="icon" />
+                  <span>Pdf</span>
+                </div>
               </div>
             </div>
           </div>
@@ -74,8 +85,10 @@ export default function Wallet() {
           <div className="header-right grid">
             <CardSpending />
             <CardSpendingMoy />
-            <CardSaving Data={WalletData} />
+            <CardSaving />
             <CardGoal />
+            <CardSaving />
+            <CardSaving />
           </div>
         </div>
       </div>
