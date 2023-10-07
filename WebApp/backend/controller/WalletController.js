@@ -98,8 +98,7 @@ const MonthlySpending = async (req, res)=>{
         // Calculate the total spending for the month
         const totalSpending = spendings.reduce((sum, spending) => sum - spending.Amount, 0);
         res.status(200).json({totalSpending: totalSpending.toFixed(2)})
-    })
-    .catch((err) => {
+    }).catch((err) => {
         console.error('Error fetching spending data:', err);
     });
 }

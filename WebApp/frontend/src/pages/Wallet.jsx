@@ -26,7 +26,7 @@ export default function Wallet() {
   const notify = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
   const { user } = useAuthContext();
-  const [WalletData, setWalletData] = useState("");
+  const [WalletData, setWalletData] = useState('')
   // Fetch Wallet Data
   useEffect(() => {
     const fetchWalletData = async () => {
@@ -54,6 +54,9 @@ export default function Wallet() {
     };
     fetchWalletData();
   }, [WalletData, user?.token]);
+  const NavigateToBank = () => {
+    navigate(`/LinkBank`);
+  }
   return (
     <div className="Wallet flex flex-col">
       <div className="Wallet-header flex flex-col">
@@ -85,13 +88,13 @@ export default function Wallet() {
             </div>
           </div>
 
-          <div className="header-right flex flex-col">
-            <div className="check-it flex gap-5">
-              <CardSpending />
-              <CardSpendingMoy />
-              <CardSaving />
-            </div>
-            <WalletAdvice />
+          <div className="header-right grid">
+            <CardSpending />
+            <CardSpendingMoy />
+            <CardSaving />
+            <CardGoal />
+            <CardSaving />
+            <CardSaving />
           </div>
         </div>
       </div>
@@ -102,7 +105,7 @@ export default function Wallet() {
             <h2>Bank</h2>
           </div>
           <div className="add-class flex items-center justify-center">
-            <AiOutlinePlus className="icon" />
+            <AiOutlinePlus className="icon" onClick={NavigateToBank}/>
           </div>
         </div>
 
