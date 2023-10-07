@@ -13,14 +13,8 @@ export default function SendPayment() {
   const [bankID, setBankID] = useState(''); 
   const [AccountNumber, setAccountNumber] = useState('')
   const [Amount, setAmount] = useState('')
-  const handleBankChange = (e) => {
-    const selectedOption = e.target.value;
-    const selectedID =
-      e.target.options[e.target.selectedIndex].getAttribute("data-id");
-
-    setBankName(selectedOption);
-    setBankID(selectedID);
-  }; 
+  const [Telephone, setTelephone] = useState('');
+  
   // Fetch Bank Data
   useEffect(() => {
     const fetchBankData = async () => {
@@ -60,6 +54,7 @@ export default function SendPayment() {
         UserID: user?.id,
         BankID: bankID,
         AccountNumber: AccountNumber,
+        Telephone: Telephone,
         Amount:Amount}),
       });
 
@@ -69,8 +64,14 @@ export default function SendPayment() {
       notify(json.message);
     }
     if (reponse.ok) {
-      notify(json.message);
+      notifySuccess(json.message);
     }
+  }
+  const MakeItEmpty = async (e) =>{
+    setTelephone('')
+    setAccountNumber('')
+    setAmount('')
+    setBankID('')
   }
   return (
     <div className="SendPayment">
@@ -81,44 +82,44 @@ export default function SendPayment() {
           <div className="input-items flex flex-col gap-4">
             <div className="input-item flex flex-col gap-2">
               <label>Phone Number</label>
-              <input type="tel" />
+              <div className="Amount-input-class flex items-center">
+                <span>+213</span>
+                <input type="number" value={Telephone} onChange={(e) => setTelephone(e.target.value)}/>
+              </div>
             </div>
             <div className="input-item flex flex-col gap-2">
               <label>Account ID</label>
-              <input type="text" onChange={(e) => setAccountNumber(e)} />
+              <input type="number" value={AccountNumber} onChange={(e) => setAccountNumber(e.target.value)} />
             </div>
             <div className="input-item flex flex-col gap-2">
               <label>Amount</label>
               <div className="Amount-input-class flex items-center">
-                <input type="text" onChange={(e) => setAmount(e)} />
+                <input type="number" value={Amount} onChange={(e) => setAmount(e.target.value)} />
                 <span>DZA</span>
               </div>
             </div>
-
             <div className="input-item input-section flex flex-col gap-2">
               <label>Bank name</label>
-              <select type="text" onChange={handleBankChange}>
+              <select type="text" onChange={(e) => setBankID(e.target.value)}>
                 <option>Select a bank</option>
-                {BankData && BankData?.map((Data) => (
-                  <option key={Data?.id} value={Data?.Name}>
-                      {Data?.Name}
+                {BankData &&
+                  BankData.map((bank) => (
+                    <option
+                      value={bank.id}
+                    >
+                      {bank?.Name}
                     </option>
                   ))}
               </select>
             </div>
-            <div className="input-item input-section flex flex-col gap-2">
-              <label>Note</label>
-              <input type="text" />
-            </div>
           </div>
-
           <div className="button flex flex-col gap-4">
             <input
               className="Bank-btn agree-btn"
               type="submit"
               value="Agree and link"
             />
-            <button className="Bank-btn cancel-btn">Cancel</button>
+            <button type="button" onClick={MakeItEmpty} className="Bank-btn cancel-btn">Cancel</button>
           </div>
         </form>
       </div>

@@ -4,7 +4,9 @@ const {
     GetAllBank,
     DeleteBank,
     AddNewBank,
-    SendMoney
+    SendMoney,
+    RequestPayment,
+    Windraw
 } = require('../controller/BankController');
 const router = express.Router();
 
@@ -13,5 +15,10 @@ router.get('/', GetAllBanks);
 //add a new bank to wallet
 router.post('/', AddNewBank);
 //send money
-router.patch('/sendmoney', SendMoney)
+router.patch('/sendmoney', SendMoney);
+//request payment
+router.patch('/requestpayment', RequestPayment)
+//windraw money
+router.patch('/windraw', Windraw)
+
 module.exports = router;

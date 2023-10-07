@@ -8,6 +8,10 @@ const transaction = sequelize.define('transactions', {
     allowNull: false,
     autoIncrement: true,
   },
+  UserID:{
+    type: DataTypes.BIGINT,
+    allowNull: false,
+  },
   Name: {
     type: DataTypes.STRING,
     allowNull: false,

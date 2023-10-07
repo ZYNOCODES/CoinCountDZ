@@ -12,6 +12,10 @@ const clients = sequelize.define('bankclients', {
     type: DataTypes.BIGINT,
     allowNull: false,
   },
+  Telephone: {
+    type: DataTypes.NUMBER,
+    allowNull: false,
+  },
   BankID: {
     type: DataTypes.BIGINT,
     allowNull: false,
@@ -20,6 +24,7 @@ const clients = sequelize.define('bankclients', {
     type: DataTypes.BIGINT,
     allowNull: true,
   },
+
 },{
   timestamps: true,
 });
