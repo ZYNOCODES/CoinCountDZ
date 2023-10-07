@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    android:layout_marginVertical="3dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/gradiant_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="15dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Balance"
+                    android:textSize="14dp"
+                    android:textColor="@color/Secondary"
+                    android:fontFamily="@font/poppins_regular"
+                    />
+
+                <TextView
+                    android:id="@+id/balancecard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dzd 22900.0"
+                    android:textSize="20dp"
+                    android:textColor="@color/Secondary"
+                    android:fontFamily="@font/poppins_semibold"
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/idcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="**** **** **** 2350"
+            android:textSize="20dp"
+            android:textColor="@color/Secondary"
+            android:fontFamily="@font/poppins_regular"
+            />
+
+        <TextView
+            android:id="@+id/expdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EXP 24/07"
+            android:textColor="@color/Secondary"
+            android:fontFamily="@font/poppins_regular"
+            />
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
