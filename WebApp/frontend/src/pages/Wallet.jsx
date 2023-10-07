@@ -22,6 +22,7 @@ import CardBancCCP from "../components/CardBankCCP";
 import CardBankCPA from "../components/CardBankCPA";
 import CardBankAGB from "../components/CardBankAGB";
 import FormDialog from "../components/AddDialog";
+import BigGoalsItems from "../components/BigGoalsItems";
 import GoalsItems from "../components/GoalsItems";
 
 export default function Wallet() {
@@ -131,8 +132,16 @@ export default function Wallet() {
               <div className="right-class-goal flex flex-col gap-4">
                 <span>Big Goal</span>
                 <div className="goal-items flex gap-5">
-                  <GoalsItems />
+                  <BigGoalsItems />
                   <FormDialog />
+                </div>
+              </div>
+              <div className="right-goal-progress flex gap-10">
+                <div className="goal flex flex-col gap-4">
+                  <span>Goals</span>
+                  <div className="goal-container">
+                    <GoalsItems />
+                  </div>
                 </div>
               </div>
             </div>

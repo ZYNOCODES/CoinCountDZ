@@ -1,11 +1,11 @@
-import React from "react";
+import { Checkbox } from '@mui/material';
+import React from 'react'
 
-export default function GoalItemOnlyOne({id, Name, Amount, Date}) {
+export default function GoalItemOnlyOne({id, Name, Amount}) {
   return (
-    <div className="goal-item">
-      <h3>{Name}</h3>
-      <span>{Amount} DZ</span>
-      <p>{Date}</p>
+    <div className="GoalItemOnlyOne flex items-center gap-2">
+      <Checkbox defaultChecked />
+      <h4>{Name} : + {Amount} DA</h4>
     </div>
   );
 }
