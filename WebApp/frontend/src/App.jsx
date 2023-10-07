@@ -4,13 +4,13 @@ import Home from "./pages/Home";
 import Wallet from "./pages/Wallet";
 import Send from "./pages/SendPayment";
 import Activity from "./pages/Activity";
-import Login from "./pages/loginPage";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Operation from "./pages/Operation";
 import SendPayment from "./pages/SendPayment";
 import RequestPayment from "./pages/RequestPayment";
 import Withdraw from "./pages/Withdraw";
 import Bank from "./pages/BankAccount";
+import Login from "./pages/LoginPage";
 
 function App() {
   const { user } = useAuthContext();
