@@ -54,13 +54,7 @@ export default function Home() {
             <CardSaving Data={WalletData} />
           </div>
           <div className="left-expenses flex flex-col items-center gap-2">
-            <div className="header flex items-center justify-between">
-              <span>Expenses</span>
-              <select>
-                <option value="week">Last week</option>
-                <option value="month">Last month</option>
-              </select>
-            </div>
+            
             <ChartExpenses />
           </div>
           <div className="left-expenses expense-table flex flex-col gap-6">

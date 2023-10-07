@@ -15,12 +15,15 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAuthContext } from "../hooks/useAuthContext";
 import CardBank from "../components/CardBank";
 import TableTransaction from "../components/Tables/TableTransaction";
+import { useNavigate, useNavigation } from "react-router";
 
 export default function Wallet() {
   const notify = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
   const { user } = useAuthContext();
   const [WalletData, setWalletData] = useState('')
+  const navigate = useNavigate();
+
   // Fetch Wallet Data
   useEffect(() => {
     const fetchWalletData = async () => {
@@ -48,6 +51,9 @@ export default function Wallet() {
     };
     fetchWalletData();
   }, [WalletData, user?.token]);
+  const NavigateToBank = () => {
+    navigate(`/LinkBank`);
+  }
   return (
     <div className="Wallet flex flex-col">
       <div className="Wallet-header flex flex-col">
@@ -68,10 +74,8 @@ export default function Wallet() {
           <div className="header-right grid">
             <CardSpending />
             <CardSpendingMoy />
-            <CardSaving />
+            <CardSaving Data={WalletData} />
             <CardGoal />
-            <CardSaving />
-            <CardSaving />
           </div>
         </div>
       </div>
@@ -82,7 +86,7 @@ export default function Wallet() {
             <h2>Bank</h2>
           </div>
           <div className="add-class flex items-center justify-center">
-            <AiOutlinePlus className="icon" />
+            <AiOutlinePlus className="icon" onClick={NavigateToBank}/>
           </div>
         </div>
 

@@ -10,6 +10,7 @@ import Operation from "./pages/Operation";
 import SendPayment from "./pages/SendPayment";
 import RequestPayment from "./pages/RequestPayment";
 import Withdraw from "./pages/Withdraw";
+import Bank from "./pages/BankAccount";
 
 function App() {
   const { user } = useAuthContext();
@@ -27,13 +28,13 @@ function App() {
             element={user ? <Home /> : <Navigate to="/" />}
           ></Route> */}
           <Route path="/" element={<Home />}></Route>
-
           <Route path="/Wallet" element={<Wallet />}></Route>
           <Route path="/Operation" element={<Operation />}></Route>
           <Route path="/Activity" element={<Activity />}></Route>
           <Route path="/Send" element={<SendPayment />}></Route>
           <Route path="/Request" element={<RequestPayment />}></Route>
           <Route path="/Withdraw" element={<Withdraw />}></Route>
+          <Route path="/LinkBank" element={<Bank />}></Route>
         </Routes>
       </main>
     </BrowserRouter>

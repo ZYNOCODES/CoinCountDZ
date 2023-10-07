@@ -28,6 +28,12 @@ const transaction = sequelize.define('transactions', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  createdAt	: {
+    type: DataTypes.DATE,
+  },
+  updatedAt	: {
+    type: DataTypes.DATE,
+  },
 },{
   timestamps: true,
 });
