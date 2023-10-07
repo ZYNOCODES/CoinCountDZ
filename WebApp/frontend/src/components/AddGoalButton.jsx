@@ -20,7 +20,7 @@ export default function FormDialogButton() {
   };
 
   return (
-    <div className="button">
+    <div className="button-add">
       <Button variant="outlined" onClick={handleClickOpen}>
         <div className="add-goal-btn2 flex items-center justify-center">
           <AiOutlinePlus className="icon" />

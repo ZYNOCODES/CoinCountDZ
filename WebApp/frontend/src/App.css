@@ -1389,7 +1389,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
 }
 
-.button {
+.button-add {
   position: absolute;
   top: 5px;
   right: 10%;

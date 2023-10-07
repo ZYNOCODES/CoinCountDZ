@@ -117,9 +117,7 @@ export default function Login() {
                 onChange={(e) => {
                   setloginpassword(e.target.value);
                 }}/>
-              <div className="forget-class">
-                <a>I forget my password</a>
-              </div>
+              
             </div>
             <input
               type="submit"
