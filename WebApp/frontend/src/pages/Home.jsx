@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import CardAccount from "../components/CardAccount";
 import CardSaving from "../components/CardSaving";
-import CardFITTECH from "../components/CardFITTECH";
-import TableTransaction from "../components/Tables/TableTransaction";
 import TableExpense from "../components/Tables/TableExpense";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChartExpenses from "../components/ChartExpenses";
 import Calendar from "../components/Calendar";
+import CardSwiper from "../components/CardSwiper";
 
 export default function Home() {
   const notify = (message) => toast.error(message);
@@ -76,7 +75,7 @@ export default function Home() {
         <div className="right-class flex flex-col gap-8 items-center">
           <div className="right-wallet flex flex-col mt-4">
             <span>Wallet</span>
-            <CardFITTECH />
+            <CardSwiper />
           </div>
           <div className="right-transaction flex justify-center">
             <Calendar />

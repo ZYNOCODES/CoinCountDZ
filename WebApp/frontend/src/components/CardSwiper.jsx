@@ -36,14 +36,19 @@ export default function CardSwiper() {
       Name: "Abdallah Dekkich",
       Number: "1234",
     },
+    {
+      id: 3,
+      Name: "Abdallah Dekkich",
+      Number: "1234",
+    },
   ];
   return (
-    <div className="CardSwiper ">
+    <div className="CardSwiper">
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {SwiperCardDB.map((card) => {
           return (
             <SwiperSlide className="swiper-item flex justify-center">
-              <CardFITTECH key={card.id} Name={card.Name} />
+              <CardFITTECH key={card.id} Name={card.Name} Number={Number} />
             </SwiperSlide>
           );
         })}

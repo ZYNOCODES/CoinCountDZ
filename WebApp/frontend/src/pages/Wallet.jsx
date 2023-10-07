@@ -13,10 +13,14 @@ import CardGoal from "../components/CardGoal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuthContext } from "../hooks/useAuthContext";
-import CardBank from "../components/CardBank";
+import CardBank from "../components/CardBankBNA";
 import TableTransaction from "../components/Tables/TableTransaction";
 import CardSwiper from "../components/CardSwiper";
 import WalletAdvice from "../components/WalletAdvice";
+import CardBankBNA from "../components/CardBankBNA";
+import CardBancCCP from "../components/CardBankCCP";
+import CardBankCPA from "../components/CardBankCPA";
+import CardBankAGB from "../components/CardBankAGB";
 
 export default function Wallet() {
   const notify = (message) => toast.error(message);
@@ -103,25 +107,20 @@ export default function Wallet() {
         </div>
 
         <div className="All-bank-accounts flex items-center mt-6">
-          <div className="left flex justify-center">
-            <span>Right there you can see all your banks accounts</span>
-          </div>
-          <div className="right flex items-center gap-5">
-            <CardBank />
-            <CardBank />
+          <div className="right flex items-center justify-between">
+            <CardBankBNA />
+            <CardBancCCP />
+            <CardBankCPA />
+            <CardBankAGB />
           </div>
         </div>
 
         <div className="right-transaction flex flex-col mt-12 pr-8">
-          <div className="title flex items-center justify-between mb-4">
-            <span>Recent transaction</span>
-            <div className="Activity-input flex items-center justify-between">
-              <input type="search" placeholder="Search.." />
-              <AiOutlineSearch className="icon" />
+          <div className="Transaction-Goal flex">
+            <div className="left-class mt-3 flex flex-col gap-4">
+              <span>Recent transaction</span>
+              <TableTransaction />
             </div>
-          </div>
-          <div className="right-table mt-3">
-            <TableTransaction />
           </div>
         </div>
       </div>
