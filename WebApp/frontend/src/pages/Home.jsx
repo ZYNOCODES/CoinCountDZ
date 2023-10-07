@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ChartExpenses from "../components/ChartExpenses";
 import Calendar from "../components/Calendar";
 import CardSwiper from "../components/CardSwiper";
+import CardFITTECH from "../components/CardFITTECH";
 
 export default function Home() {
   const notify = (message) => toast.error(message);
@@ -68,7 +69,7 @@ export default function Home() {
         <div className="right-class flex flex-col gap-8 items-center">
           <div className="right-wallet flex flex-col mt-4">
             <span>Wallet</span>
-            <CardSwiper />
+            <CardFITTECH />
           </div>
           <div className="right-transaction flex justify-center">
             <Calendar />
