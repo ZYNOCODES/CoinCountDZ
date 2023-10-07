@@ -1344,7 +1344,7 @@ input[type="search"]::-webkit-search-results-decoration {
   color: var(--PrimaryColor);
 }
 
-.goal-items{
+.goal-items {
   overflow-x: hidden;
 }
 
@@ -1358,27 +1358,27 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 5px;
 }
 
-.goal-item h3{
+.goal-item h3 {
   font-size: 24px;
   color: var(--PrimaryColor);
   text-transform: capitalize;
 }
 
-.goal-item span{
+.goal-item span {
   font-size: 22px;
   color: var(--PrimaryColor);
 }
 
-.goal-item p{
+.goal-item p {
   font-size: 14px;
   color: var(--PrimaryColor);
 }
 
-.GoalsItems{
+.GoalsItems {
   width: fit-content;
 }
 
-.Goals-Items{
+.Goals-Items {
   width: 300px;
   height: 50vh;
   border: 1px solid var(--PrimaryColor);
@@ -1389,14 +1389,38 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
 }
 
-.button{
+.button {
   position: absolute;
   top: 5px;
   right: 10%;
   width: 10px;
-  width: 40Px;
+  width: 40px;
 }
 
+.progress-container {
+  width: 400px;
+  height: 50vh;
+  border: 1px solid var(--PrimaryColor);
+  border-radius: 10px;
+  padding: 15px;
+}
 
+.progress-item span {
+  font-size: 16px;
+}
 
+.progress-container .Wallet-Advice-title {
+  margin-top: 10px;
+}
 
+.progress-container .Wallet-Advice-title img {
+  width: 30px;
+}
+
+.progress-container .Wallet-Advice-title span {
+  font-size: 16px;
+}
+
+.p-advice {
+  font-size: 14px;
+}

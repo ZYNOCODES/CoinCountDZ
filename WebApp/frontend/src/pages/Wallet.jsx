@@ -24,6 +24,12 @@ import CardBankAGB from "../components/CardBankAGB";
 import FormDialog from "../components/AddDialog";
 import BigGoalsItems from "../components/BigGoalsItems";
 import GoalsItems from "../components/GoalsItems";
+import SalesProgress from "../components/SalesProgress";
+import SavesProgress from "../components/SavesProgress";
+import idea from "../assets/advice.png";
+
+import BuyingProgress from "../components/BuyingProgress";
+import DeptProgress from "../components/DeptProgress";
 
 export default function Wallet() {
   const notify = (message) => toast.error(message);
@@ -141,6 +147,37 @@ export default function Wallet() {
                   <span>Goals</span>
                   <div className="goal-container">
                     <GoalsItems />
+                  </div>
+                </div>
+
+                <div className="progress flex flex-col gap-4">
+                  <span>Progress</span>
+                  <div className="progress-container flex flex-col gap-2">
+                    <div className="progress-item flex flex-col gap-2">
+                      <span>Sales</span>
+                      <SalesProgress />
+                    </div>
+                    <div className="progress-item flex flex-col gap-2">
+                      <span>Saves</span>
+                      <SavesProgress />
+                    </div>
+                    <div className="progress-item flex flex-col gap-2">
+                      <span>Buying</span>
+                      <BuyingProgress />
+                    </div>
+                    <div className="progress-item flex flex-col gap-2">
+                      <span>Dept</span>
+                      <DeptProgress />
+                    </div>
+                    <div className="Wallet-Advice-title flex items-center gap-2">
+                      <img src={idea} alt="" />
+                      <span>This is our advice for you</span>
+                    </div>
+                    <p className="p-advice">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Adipisci doloribus et molestiae perspiciatis nobis sequi
+                      quia dolorem maxime, natus asperiores.
+                    </p>
                   </div>
                 </div>
               </div>
