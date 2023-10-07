@@ -53,7 +53,6 @@ export default function Home() {
             <CardSaving Data={WalletData} />
           </div>
           <div className="left-expenses flex flex-col items-center gap-2">
-            
             <ChartExpenses />
           </div>
           <div className="left-expenses expense-table flex flex-col gap-6">
