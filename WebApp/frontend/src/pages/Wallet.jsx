@@ -21,6 +21,8 @@ import CardBankBNA from "../components/CardBankBNA";
 import CardBancCCP from "../components/CardBankCCP";
 import CardBankCPA from "../components/CardBankCPA";
 import CardBankAGB from "../components/CardBankAGB";
+import FormDialog from "../components/AddDialog";
+import GoalsItems from "../components/GoalsItems";
 
 export default function Wallet() {
   const notify = (message) => toast.error(message);
@@ -123,6 +125,16 @@ export default function Wallet() {
             <div className="left-class mt-3 flex flex-col gap-4">
               <span>Recent transaction</span>
               <TableTransaction />
+            </div>
+
+            <div className="right-class flex flex-col gap-6">
+              <div className="right-class-goal flex flex-col gap-4">
+                <span>Big Goal</span>
+                <div className="goal-items flex gap-5">
+                  <GoalsItems />
+                  <FormDialog />
+                </div>
+              </div>
             </div>
           </div>
         </div>
