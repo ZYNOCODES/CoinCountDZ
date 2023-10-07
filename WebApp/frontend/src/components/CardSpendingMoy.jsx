@@ -30,9 +30,10 @@ export default function CardSpendingMoy() {
     <div className="CardSaving flex flex-col justify-between p-3">
       <span className="date">Oct 05</span>
       <div className="total-sales">
-        <span>Spending Moy</span>
+        <span>average Spending</span>
         <h3>
-          {MonthlySpendingData.averageSpending}<span>DA</span>
+          {MonthlySpendingData.averageSpending}
+          <span>DA</span>
         </h3>
       </div>
     </div>

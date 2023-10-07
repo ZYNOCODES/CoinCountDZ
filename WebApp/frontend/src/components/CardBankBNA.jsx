@@ -10,7 +10,7 @@ export default function CardBankBNA() {
       </div>
       <div className="CardBank-item">
         <span>Account-number</span>
-        <p>0007999990155193</p>
+        <p>9997454015435</p>
       </div>
       <div className="CardBank-item">
         <span>SWIFT/BIC</span>
@@ -18,7 +18,7 @@ export default function CardBankBNA() {
       </div>
       <div className="Card-footer">
         <h3>
-          2000,00 <span>DA</span>
+          580000,00 <span>DA</span>
         </h3>
       </div>
     </div>

@@ -9,6 +9,8 @@ const WalletRoute = require('./route/Wallet');
 const BankRoute = require('./route/Bank');
 const TransactionRoute = require('./route/Transaction');
 const DashboardRoute = require('./route/Dashboard');
+const RecommandationRoute = require("./route/Recommandation");
+const axios = require('axios');
 
 const port = process.env.PORT || 8080;
 
@@ -30,7 +32,7 @@ app.use('/Wallet', WalletRoute);
 app.use('/Bank', BankRoute);
 app.use('/Transaction', TransactionRoute);
 app.use('/Dashboard', DashboardRoute);
-
+app.use("/RecommandationSystem", RecommandationRoute);
 
 //connect to db
 sequelize

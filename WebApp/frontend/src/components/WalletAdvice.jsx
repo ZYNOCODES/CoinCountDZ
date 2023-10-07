@@ -10,9 +10,9 @@ export default function WalletAdvice() {
         <span>This is our advice for you</span>
       </div>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-        doloribus et molestiae perspiciatis nobis sequi quia dolorem maxime,
-        natus asperiores.
+        Avoid High-Interest Debt: Pay off high-interest debt as quickly as
+        possible to avoid accruing more interest charges. Focus on paying down
+        credit card balances.
       </p>
 
       <div className="Advice-buttons flex items-center justify-end gap-2 mt-7">

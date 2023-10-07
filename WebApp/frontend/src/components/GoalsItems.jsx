@@ -6,22 +6,22 @@ export default function GoalsItems() {
   const GoalDB = [
     {
       id: 1,
-      Name: "Iphone",
-      Amount: "3000",
+      Name: "House",
+      Amount: "8900000",
+    },
+    {
+      id: 1,
+      Name: "Car",
+      Amount: "500000",
     },
     {
       id: 1,
       Name: "Iphone",
-      Amount: "3000",
-    },
-    {
-      id: 1,
-      Name: "Iphone",
-      Amount: "3000",
+      Amount: "300000",
     },{
       id: 1,
-      Name: "Iphone",
-      Amount: "3000",
+      Name: "Saving",
+      Amount: "65000",
     },
   ];
   return (

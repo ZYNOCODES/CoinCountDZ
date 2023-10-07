@@ -19,7 +19,7 @@ export default function CardBancCCP() {
       </div>
       <div className="Card-footer">
         <h3>
-          2000,00 <span>DA</span>
+          32095,00 <span>DA</span>
         </h3>
       </div>
     </div>

@@ -200,7 +200,62 @@ li {
   position: fixed;
   right: -100%;
   top: 0;
+  z-index: 999;
   background-color: var(--SecondaryColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  
+}
+
+.AsideBar-image-profile{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #bdbdbd;
+  margin-top: 30px;
+}
+
+.AsideBar .profile-form{
+  width: 100%;
+  margin-top: 80px;
+}
+
+.AsideBar .profile-form span{
+  color: var(--PrimaryColor);
+  font-size: 18px;
+}
+
+.AsideBar-button-class{
+  width: 100%;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+.AsideBar-button-class button{
+  width: fit-content;
+  padding: 10px 20px;
+  border: 1px solid var(--PrimaryColor);
+  border-radius: 10px;
+  color: var(--PrimaryColor);
+}
+
+.AsideBar-close-button{
+  width: 50px;
+  height: 50px;
+  background-color: #063b87;
+  border-radius: 50%;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+
+.AsideBar-close-button .icon{
+  color: var(--WhiteColor);
+  font-style: 18px;
 }
 
 .showAsideBar.AsideBar {

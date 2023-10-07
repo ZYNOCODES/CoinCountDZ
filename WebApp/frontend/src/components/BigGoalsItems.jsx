@@ -6,15 +6,15 @@ export default function BigGoalsItems() {
   const GoalDB = [
     {
       id: 1,
-      Name: "Iphone",
+      Name: "House",
       Date: "April 28,2023 at 11:00",
-      Amount: "3000",
+      Amount: "8900000",
     },
     {
       id: 1,
-      Name: "Iphone",
+      Name: "Car",
       Date: "April 28,2023 at 11:00",
-      Amount: "3000",
+      Amount: "500000",
     },
   ];
   return (

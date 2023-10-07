@@ -142,14 +142,14 @@ export default function Login() {
                 }}/>
             </div>
             <div className="input-field">
-              <label htmlFor="">email</label>
+              <label htmlFor="">Email</label>
               <input type="text" placeholder="Enter your email.." 
                 onChange={(e) => {
                   setSigninEmail(e.target.value);
                 }}/>
             </div>
             <div className="input-field">
-              <label htmlFor="">password</label>
+              <label htmlFor="">Password</label>
               <input type="password" placeholder="Enter your password.." 
                 onChange={(e) => {
                   setSigninpassword(e.target.value);
@@ -163,7 +163,7 @@ export default function Login() {
                 }}/>
             </div>
             <div className="input-field">
-              <label htmlFor="">Telephone number</label>
+              <label htmlFor="">Phone number</label>
               <input type="tel" placeholder="Enter your Telephone number.." 
                 onChange={(e) => {
                   setTelephone(e.target.value);

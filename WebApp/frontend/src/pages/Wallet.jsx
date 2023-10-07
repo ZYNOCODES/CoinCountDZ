@@ -101,7 +101,7 @@ export default function Wallet() {
             <div className="check-it flex gap-5">
               <CardSpending />
               <CardSpendingMoy />
-              <CardSaving />
+              <CardSaving Data={WalletData} />
             </div>
             <WalletAdvice />
           </div>
