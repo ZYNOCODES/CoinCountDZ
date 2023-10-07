@@ -207,12 +207,24 @@ export default function ChartExpenses() {
         <>
           <div className="header flex items-center justify-between">
             <span>Expenses</span>
-            <select>
-              <option value="week">Last week</option>
-              <option value="month">Last month</option>
+            <select
+              onChange={(e) => {setSelectedData(e.target.value)}}
+            >
+              <option value="week">Semaine</option>
+              <option value="month">Mois</option>
+              <option value="year">Année</option>
             </select>
           </div>
-          <Bar className="chart-dashboard1" options={options} data={dataWeek} />
+          {SelectedData === "week" ? 
+            <Bar className="chart-dashboard1" options={options} data={dataWeek} /> :
+            (SelectedData === "month" ?
+              <Bar className="chart-dashboard1" options={options} data={dataMonth} /> :
+              (SelectedData === "year" ?
+                <Bar className="chart-dashboard1" options={options} data={dataYear} /> :
+                <Bar className="chart-dashboard1" options={options} data={dataWeek} />
+              )
+            )
+          }
         </>
   );
 }
