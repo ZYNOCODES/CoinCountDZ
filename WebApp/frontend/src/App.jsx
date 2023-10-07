@@ -27,7 +27,6 @@ function App() {
             path="/Dashboard"
             element={user ? <Home /> : <Navigate to="/" />}
           ></Route>
-          <Route path="/" element={<Home />}></Route>
           <Route path="/Wallet" element={<Wallet />}></Route>
           <Route path="/Operation" element={<Operation />}></Route>
           <Route path="/Activity" element={<Activity />}></Route>

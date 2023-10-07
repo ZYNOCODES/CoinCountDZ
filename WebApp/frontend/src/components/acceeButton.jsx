@@ -15,7 +15,7 @@ export default function AcceeButton({ openPanel, setOpenPanel }) {
       id="demande-accee"
       onClick={handleClickAccee}
     >
-      Demande acces
+      SignUp
     </button>
   );
 }

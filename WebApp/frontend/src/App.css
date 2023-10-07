@@ -547,13 +547,13 @@ li {
 .TableExpense th td,
 .TableExpenseReadOnlyRow tr td {
   width: calc(100% / 4);
-  text-align: center;
+  text-align: left;
 }
 
 .TableHistory th td,
 .Table-history tr td {
   width: calc(100% / 5);
-  text-align: center;
+  text-align: left;
 }
 
 /* login page style */

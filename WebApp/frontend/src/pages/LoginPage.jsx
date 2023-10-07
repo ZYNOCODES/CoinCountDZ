@@ -103,25 +103,30 @@ export default function Login() {
       <div className="forms-container">
         <div className="login-signin">
           <form action="" className="login-in-form" onSubmit={submitLogin}>
-            <h2 className="title-login">connexion</h2>
+            <h2 className="title-login">Login</h2>
             <div className="input-field email">
               <label htmlFor="">email</label>
-              <input type="text" placeholder="Enter your email.."
+              <input
+                type="text"
+                placeholder="Enter your email.."
                 onChange={(e) => {
                   setloginEmail(e.target.value);
-                }} />
+                }}
+              />
             </div>
             <div className="input-field password">
               <label htmlFor="">password</label>
-              <input type="password" placeholder="Enter your password.." 
+              <input
+                type="password"
+                placeholder="Enter your password.."
                 onChange={(e) => {
                   setloginpassword(e.target.value);
-                }}/>
-              
+                }}
+              />
             </div>
             <input
               type="submit"
-              value="connexion"
+              value="LogIn"
               className="cnx-btn btn-solid bg-blue-950"
             />
           </form>
@@ -129,55 +134,76 @@ export default function Login() {
           <form action="" className="sign-in-form">
             <div className="input-field">
               <label htmlFor="">First name</label>
-              <input type="text" placeholder="Enter your name.." 
+              <input
+                type="text"
+                placeholder="Enter your name.."
                 onChange={(e) => {
                   setFirstName(e.target.value);
-                }}/>
+                }}
+              />
             </div>
             <div className="input-field">
               <label htmlFor="">Last name</label>
-              <input type="text" placeholder="Enter your first name.." 
+              <input
+                type="text"
+                placeholder="Enter your first name.."
                 onChange={(e) => {
                   setLastName(e.target.value);
-                }}/>
+                }}
+              />
             </div>
             <div className="input-field">
               <label htmlFor="">Email</label>
-              <input type="text" placeholder="Enter your email.." 
+              <input
+                type="text"
+                placeholder="Enter your email.."
                 onChange={(e) => {
                   setSigninEmail(e.target.value);
-                }}/>
+                }}
+              />
             </div>
             <div className="input-field">
               <label htmlFor="">Password</label>
-              <input type="password" placeholder="Enter your password.." 
+              <input
+                type="password"
+                placeholder="Enter your password.."
                 onChange={(e) => {
                   setSigninpassword(e.target.value);
-                }}/>
+                }}
+              />
             </div>
             <div className="input-field">
               <label htmlFor="">Reset password</label>
-              <input type="password" placeholder="Enter your password.." 
+              <input
+                type="password"
+                placeholder="Enter your password.."
                 onChange={(e) => {
                   setResetpassword(e.target.value);
-                }}/>
+                }}
+              />
             </div>
             <div className="input-field">
               <label htmlFor="">Phone number</label>
-              <input type="tel" placeholder="Enter your Telephone number.." 
+              <input
+                type="tel"
+                placeholder="Enter your Telephone number.."
                 onChange={(e) => {
                   setTelephone(e.target.value);
-                }}/>
+                }}
+              />
             </div>
             <div className="input-field">
               <label htmlFor="">Region</label>
-              <input type="tel" placeholder="Enter your Region.." 
+              <input
+                type="tel"
+                placeholder="Enter your Region.."
                 onChange={(e) => {
                   setRegion(e.target.value);
-                }}/>
+                }}
+              />
             </div>
             <button className="demande-accee2" onClick={submitSignup}>
-              <a href="#">demande accee</a>
+              <a href="#">SignUp</a>
             </button>
           </form>
         </div>
@@ -189,7 +215,7 @@ export default function Login() {
           </div>
           <div className="image-login">
             <div className="logo">
-              <h2 className="text-6xl mr-8 mb-20">fittech.</h2>
+              <h2 className="text-6xl mr-8 mb-20">CoinCountDZ</h2>
             </div>
           </div>
         </div>
@@ -197,18 +223,14 @@ export default function Login() {
           <div className="content">
             <a href="#">
               <div className="logo">
-                <h2 className="text-6xl">fittech.</h2>
+                <h2 className="text-6xl">CoinCountDZ</h2>
               </div>
             </a>
-            <p>
-              Your request will be checked by the administration, and after a
-              few days we will inform you by e-mail and SMS
-            </p>
             <BackButton openPanel={openPanel} setOpenPanel={setOpenPanel} />
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }
